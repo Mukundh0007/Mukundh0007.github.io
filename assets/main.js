@@ -1,5 +1,6 @@
 // Mukundh Jayapal portfolio: theme toggle, detection count-ups, scroll reveal,
-// pipeline drawing, copy-email and the Ctrl/⌘ K command palette.
+// pipeline drawing, copy-email, the Ctrl/⌘ K command palette and lazy loaders
+// for the on-demand features in assets/js/.
 // The page works without this file.
 (function () {
   var d = document, root = d.documentElement;
@@ -179,6 +180,27 @@
         if (dlg.open) dlg.close(); else open();
       }
     });
+  }
+
+  /* ---------- On-demand features: load their code only when needed ---------- */
+  // "Run my model": the module (a few KB) loads when the section nears the viewport;
+  // the model and ONNX Runtime load only after the visitor starts a detection.
+  var demo = $("#demo");
+  if (demo) {
+    var loadDemo = function () {
+      import(new URL("assets/js/detect.js", d.baseURI).href).catch(function () {
+        var s = $("#demo-status");
+        if (s) s.textContent = "The demo couldn't load. Refresh the page to try again.";
+      });
+    };
+    if ("IntersectionObserver" in window) {
+      var dio = new IntersectionObserver(function (es) {
+        if (es.some(function (e) { return e.isIntersecting; })) { dio.disconnect(); loadDemo(); }
+      }, { rootMargin: "400px 0px" });
+      dio.observe(demo);
+    } else {
+      loadDemo();
+    }
   }
 
   /* ---------- Footer year ---------- */

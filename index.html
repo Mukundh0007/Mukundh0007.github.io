@@ -22,6 +22,15 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/styles.css">
+  <!-- Pinned CDN libraries for the on-demand features (loaded only when used). -->
+  <script type="importmap">
+    {
+      "imports": {
+        "onnxruntime-web/wasm": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.30.0/dist/ort.wasm.min.mjs",
+        "onnxruntime-web/webgpu": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.30.0/dist/ort.webgpu.min.mjs"
+      }
+    }
+  </script>
   <script>
     /* Before first paint: flag JS, apply a saved theme, and note palette support. */
     (function () {
@@ -51,6 +60,7 @@
     <symbol id="i-down" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
   </svg>
@@ -64,6 +74,7 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="#demo">Demo</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#strengths">Strengths</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -226,11 +237,49 @@
       </div>
     </section>
 
+    <!-- ============ RUN MY MODEL ============ -->
+    <section class="section" id="demo" aria-labelledby="demo-title" data-cmd="Run my model" data-cmd-group="Section">
+      <div class="container">
+        <div class="sec-head reveal">
+          <h2 class="sec-title" id="demo-title"><span class="sec-idx" aria-hidden="true">03</span>Run my model</h2>
+          <p class="sec-sub">A YOLOX-Nano object detector (80 everyday COCO classes) running live in your browser.</p>
+        </div>
+        <div class="demo reveal">
+          <div class="demo-stage">
+            <div class="demo-frame">
+              <div class="demo-view" id="demo-view">
+                <p class="demo-empty">Pick a sample, drop an image here, or start your camera.</p>
+              </div>
+            </div>
+            <p class="demo-hud"><span id="demo-backend">backend: not loaded</span><span id="demo-fps"></span></p>
+          </div>
+          <div class="demo-side">
+            <p class="demo-privacy"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span><strong>Runs entirely in your browser.</strong> Nothing is uploaded: your images and camera frames never leave your device.</span></p>
+            <p class="demo-status" id="demo-status" role="status" aria-live="polite">The model loads when you start: about 7&nbsp;MB on first run (model and runtime), then it's cached.</p>
+            <div class="demo-samples" role="group" aria-label="Sample images">
+              <button type="button" class="sample" data-sample="assets/samples/astronaut.jpg" data-alt="Astronaut Eileen Collins" disabled><img src="assets/samples/astronaut.jpg" alt="" loading="lazy" decoding="async" width="512" height="512"><span>Astronaut</span></button>
+              <button type="button" class="sample" data-sample="assets/samples/chelsea.jpg" data-alt="Chelsea the cat" disabled><img src="assets/samples/chelsea.jpg" alt="" loading="lazy" decoding="async" width="451" height="300"><span>Cat</span></button>
+              <button type="button" class="sample" data-sample="assets/samples/coffee.jpg" data-alt="A cup of coffee on a table" disabled><img src="assets/samples/coffee.jpg" alt="" loading="lazy" decoding="async" width="600" height="400"><span>Coffee</span></button>
+            </div>
+            <div class="demo-actions">
+              <button type="button" class="btn btn-sm" id="demo-pick" disabled>Choose image</button>
+              <button type="button" class="btn btn-sm btn-primary" id="demo-cam" disabled>Start camera</button>
+              <button type="button" class="btn btn-sm" id="demo-stop" disabled>Stop</button>
+              <input type="file" id="demo-file" accept="image/*" class="visually-hidden" tabindex="-1" aria-hidden="true">
+            </div>
+            <ul class="demo-results" id="demo-results" aria-label="Detections"></ul>
+            <p class="demo-credits">Model: YOLOX-Nano (Apache-2.0) on onnxruntime-web. Sample photos: NASA (public domain), Stéfan van der Walt and Rachel Michetti (CC0), via scikit-image.</p>
+            <p class="demo-nojs">This demo needs JavaScript.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ MORE PROJECTS ============ -->
     <section class="section" id="projects" aria-labelledby="projects-title" data-cmd="More projects" data-cmd-group="Section">
       <div class="container">
         <div class="sec-head reveal">
-          <h2 class="sec-title" id="projects-title"><span class="sec-idx" aria-hidden="true">03</span>More projects</h2>
+          <h2 class="sec-title" id="projects-title"><span class="sec-idx" aria-hidden="true">04</span>More projects</h2>
           <a class="text-link" href="https://github.com/Mukundh0007?tab=repositories">All repositories<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
 
@@ -280,7 +329,7 @@
     <section class="section" id="strengths" aria-labelledby="strengths-title" data-cmd="Strengths" data-cmd-group="Section">
       <div class="container">
         <div class="sec-head reveal">
-          <h2 class="sec-title" id="strengths-title"><span class="sec-idx" aria-hidden="true">04</span>Strengths</h2>
+          <h2 class="sec-title" id="strengths-title"><span class="sec-idx" aria-hidden="true">05</span>Strengths</h2>
           <p class="sec-sub">What I'm good at, and the work that shows it.</p>
         </div>
         <ol class="strengths" role="list">
@@ -353,7 +402,7 @@
     <section class="section" id="experience" aria-labelledby="experience-title" data-cmd="Experience & research" data-cmd-group="Section">
       <div class="container">
         <div class="sec-head reveal">
-          <h2 class="sec-title" id="experience-title"><span class="sec-idx" aria-hidden="true">05</span>Experience &amp; research</h2>
+          <h2 class="sec-title" id="experience-title"><span class="sec-idx" aria-hidden="true">06</span>Experience &amp; research</h2>
           <p class="sec-sub">Education, work, research and publications, newest first.</p>
         </div>
         <ol class="timeline" role="list">
@@ -458,7 +507,7 @@
     <!-- ============ CONTACT ============ -->
     <section class="section" id="contact" aria-labelledby="contact-title" data-cmd="Contact" data-cmd-group="Section">
       <div class="container">
-        <h2 class="sec-title reveal" id="contact-title"><span class="sec-idx" aria-hidden="true">06</span>Contact</h2>
+        <h2 class="sec-title reveal" id="contact-title"><span class="sec-idx" aria-hidden="true">07</span>Contact</h2>
         <div class="contact reveal">
           <p class="contact-lead">Want to talk about ML, LLM tooling or data projects? I'm always happy to connect.</p>
           <div class="email-row">
