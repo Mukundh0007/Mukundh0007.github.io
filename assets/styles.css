@@ -16,9 +16,7 @@
   --accent-contrast: #ffffff;
   --tag-bg: #eef0f4;
   --tag-text: #2c3240;
-  --placeholder-bg: #fff8e6;
-  --placeholder-border: #c48a00;
-  --placeholder-text: #6b4a00;
+  --ok: #15803d;
   --shadow: 0 1px 2px rgb(16 24 40 / 0.04), 0 4px 16px rgb(16 24 40 / 0.06);
   --shadow-hover: 0 2px 4px rgb(16 24 40 / 0.06), 0 12px 32px rgb(16 24 40 / 0.10);
   --glow: rgb(67 56 202 / 0.10);
@@ -47,9 +45,7 @@
     --accent-contrast: #0d1117;
     --tag-bg: #1f2733;
     --tag-text: #d3d9e2;
-    --placeholder-bg: #2a2210;
-    --placeholder-border: #d9a520;
-    --placeholder-text: #f3d48a;
+    --ok: #4ade80;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
     --shadow-hover: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.4);
     --glow: rgb(165 180 252 / 0.10);
@@ -70,9 +66,7 @@
   --accent-contrast: #0d1117;
   --tag-bg: #1f2733;
   --tag-text: #d3d9e2;
-  --placeholder-bg: #2a2210;
-  --placeholder-border: #d9a520;
-  --placeholder-text: #f3d48a;
+  --ok: #4ade80;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
   --shadow-hover: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.4);
   --glow: rgb(165 180 252 / 0.10);
@@ -168,19 +162,6 @@ a:hover { color: var(--accent-strong); }
 
 .muted { color: var(--text-muted); }
 
-/* Visible "Add your…" placeholders: easy to spot, easy to search for */
-.placeholder {
-  background: var(--placeholder-bg);
-  border: 2px dashed var(--placeholder-border);
-  color: var(--placeholder-text);
-}
-.placeholder-block {
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
 /* =========================================================
    Header
    ========================================================= */
@@ -274,6 +255,29 @@ a:hover { color: var(--accent-strong); }
   align-items: center;
 }
 
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+  padding: 0.35rem 0.85rem 0.35rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-elev);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+.status-dot {
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 25%, transparent);
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   color: var(--accent);
@@ -336,17 +340,11 @@ a:hover { color: var(--accent-strong); }
   justify-self: start;
   box-shadow: var(--shadow);
 }
-.avatar-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-align: center;
+.avatar {
+  height: auto;
+  border: 4px solid var(--bg-elev);
+  background: var(--bg-soft);
 }
-.avatar-placeholder .icon { width: 2.75rem; height: 2.75rem; stroke-width: 1.5; }
 
 @media (min-width: 768px) {
   .hero-inner { grid-template-columns: 1fr auto; gap: 3rem; }
@@ -400,8 +398,15 @@ a:hover { color: var(--accent-strong); }
   display: grid;
   gap: 2rem;
 }
-.about-text p:not(.placeholder) { max-width: 65ch; }
-.about-text .placeholder-block { max-width: 65ch; margin-bottom: 0; }
+.about-text p { max-width: 65ch; }
+.focus {
+  margin-bottom: 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--accent-soft);
+}
+.focus strong { color: var(--text); }
 
 .about-aside {
   display: grid;
@@ -424,8 +429,10 @@ a:hover { color: var(--accent-strong); }
   color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
-.fact p { margin: 0; font-weight: 500; }
+.edu,
 .pubs { list-style: none; display: grid; gap: 0.75rem; font-size: 0.95rem; line-height: 1.5; }
+.edu strong { font-weight: 600; }
+.edu .muted,
 .pubs .muted { display: block; font-size: 0.85rem; margin-top: 0.15rem; }
 
 @media (min-width: 900px) {
@@ -565,8 +572,11 @@ a:hover { color: var(--accent-strong); }
   font-weight: 600;
   text-decoration: none;
 }
+.contact-item { overflow-wrap: anywhere; }
 a.contact-item:hover { border-color: var(--accent); color: var(--accent); }
-.contact-item.placeholder { border: 2px dashed var(--placeholder-border); background: var(--placeholder-bg); color: var(--placeholder-text); }
+@media (min-width: 520px) {
+  .contact-wide { grid-column: span 2; }
+}
 
 /* =========================================================
    Footer
