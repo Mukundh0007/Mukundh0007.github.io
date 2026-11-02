@@ -216,6 +216,22 @@
     }
   }
 
+  /* ---------- Terminal easter egg: ` key, footer button or palette ---------- */
+  var termMod = null;
+  var openTerminal = function () {
+    (termMod || (termMod = import(new URL("assets/js/terminal.js", d.baseURI).href)))
+      .then(function (m) { m.open(); })
+      .catch(function () { termMod = null; say("The terminal couldn't load."); });
+  };
+  d.addEventListener("keydown", function (e) {
+    if (e.key !== "`" || e.metaKey || e.ctrlKey || e.altKey || e.defaultPrevented) return;
+    var t = e.target;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) || d.querySelector("dialog[open]")) return;
+    e.preventDefault();
+    openTerminal();
+  });
+  $$(".term-btn").forEach(function (b) { b.addEventListener("click", openTerminal); });
+
   /* ---------- Footer year ---------- */
   var year = $("#year");
   if (year) year.textContent = String(new Date().getFullYear());

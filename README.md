@@ -10,7 +10,7 @@ The design concept is "detected": the site behaves like a computer-vision model 
 | --- | --- |
 | `index.html` | All the content: hero, About, case studies, more projects, strengths, timeline, contact |
 | `assets/styles.css` | Design tokens (colours for light and dark), layout, detection boxes, animations |
-| `assets/js/` | On-demand feature modules (loaded only when used): `detect.js` + `detect-worker.js` for "Run my model" |
+| `assets/js/` | On-demand feature modules (loaded only when used): `detect.js` + `detect-worker.js` for "Run my model", `terminal.js` for the terminal |
 | `assets/models/` | Browser-side model files (`yolox_nano.onnx`) and their licences |
 | `assets/samples/` | Sample photos for the detection demo |
 | `assets/yolo-saw/` | "What YOLO saw" artifacts (page render, table crop, stored summary in `meta.json`) |
@@ -39,6 +39,8 @@ The design concept is "detected": the site behaves like a computer-vision model 
 **Run my model (live detection).** `assets/js/detect.js` loads when the section nears the viewport; the YOLOX-Nano model and onnxruntime-web load only after a visitor picks an image or starts the camera. Inference runs in a Web Worker (`detect-worker.js`) on WebGPU when available, otherwise single-threaded WASM (GitHub Pages can't send the COOP/COEP headers WASM threads need). Library versions are pinned once, in the `<script type="importmap">` in `index.html`. `tools/fetch-yolox.sh` re-downloads the model and `tools/export-samples.py` regenerates the sample photos.
 
 **What YOLO saw (Visual RAG case study).** Real artifacts from github.com/Mukundh0007/visual-financial-rag: page 39 of the Apple 10-K the pipeline processed, the two table crops its YOLOv8 detector saved there, and the gpt-4o-mini summary stored in its index. `tools/make-yolo-saw.py <path-to-that-repo>` rebuilds `assets/yolo-saw/`: it renders the page exactly as the pipeline does and recovers each box by locating the saved crop in the render (it refuses to write if the match isn't near-exact). The pipeline didn't save detector confidences, so none are shown.
+
+**Terminal easter egg.** Press <kbd>`</kbd> (or use the footer's Terminal button or the palette) for a small terminal: `help`, `ls projects`, `cat about`, `open <project>`, `resume`, `detect --all`, `clear`, `exit`. It lives in `assets/js/terminal.js`, loads on first use, and reads everything it prints from the page.
 
 **Command palette.** Any element with a `data-cmd="Label"` attribute shows up in the palette. `data-cmd-group` sets the small tag on the right. Links and buttons are clicked, and anything else is scrolled to.
 

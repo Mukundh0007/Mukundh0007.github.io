@@ -782,6 +782,50 @@ html:not(.js) .demo-samples, html:not(.js) .demo-actions, html:not(.js) .demo-st
 .toast.is-on { transform: translate(-50%, 0); opacity: 1; }
 
 /* =========================================================
+   Terminal easter egg (assets/js/terminal.js): dark in both themes
+   ========================================================= */
+.term-btn {
+  display: none; align-items: center; gap: 0.4rem; padding: 0.3rem 0.6rem; border: 1px solid var(--line-2); border-radius: 6px;
+  background: transparent; color: var(--ink-2); font: 600 0.85rem/1.2 var(--font-mono); cursor: pointer;
+}
+.js .term-btn { display: inline-flex; }
+.term-btn:hover { color: var(--ink); border-color: var(--ink); }
+.term-btn kbd { padding: 0.05rem 0.35rem; border: 1px solid var(--line-2); border-radius: 4px; font-size: 0.8rem; }
+.term {
+  width: min(720px, calc(100% - 2 * var(--gutter))); max-height: min(560px, 82vh); margin: 10vh auto auto; padding: 0;
+  border: 2px solid #3a404a; border-radius: 10px; background: #0a0b0d; color: #e8ebf0; box-shadow: 8px 8px 0 var(--accent);
+  overflow: hidden; font: 500 0.88rem/1.55 var(--font-mono);
+}
+.term[open] { display: flex; flex-direction: column; }
+.term::backdrop { background: rgb(5 6 8 / 0.55); }
+.term-bar { display: flex; align-items: center; gap: 0.75rem; padding: 0.45rem 0.6rem 0.45rem 0.85rem; border-bottom: 1px solid #23272e; background: #111317; }
+.term-dots { display: inline-flex; gap: 0.35rem; }
+.term-dots i { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: #ff5a6a; }
+.term-dots i + i { background: #ffcc4d; }
+.term-dots i + i + i { background: #6dff3a; }
+.term-title { flex: 1; color: #a9aeb8; font-size: 0.8rem; }
+.term-close { width: 2.25rem; height: 2.25rem; border: 0; border-radius: 6px; background: none; color: #e8ebf0; font-size: 1.35rem; line-height: 1; cursor: pointer; }
+.term-close:hover { background: #1a1d23; }
+.term-out { flex: 1; min-height: 14rem; overflow: auto; padding: 0.9rem 1rem; }
+.term-out p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.term-cmd { color: #7cff4f; }
+.term-err { color: #ff8a96; }
+.term-form { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 1rem 0.8rem; border-top: 1px solid #23272e; }
+.term-form:focus-within { box-shadow: inset 0 0 0 2px #7cff4f; }
+.term-ps { color: #7cff4f; font-weight: 700; }
+.term-form input { flex: 1; min-width: 0; min-height: 2.25rem; border: 0; background: transparent; color: #e8ebf0; font: inherit; caret-color: #7cff4f; outline: none; }
+.term :focus-visible { outline: 2px solid #7cff4f; outline-offset: 2px; }
+.term-form input:focus-visible { outline: none; } /* the form's ring shows focus */
+/* boxes drawn by "detect --all" / "open <project>" */
+.det-temp { --k: var(--c, var(--accent)); inset: -6px; z-index: 5; border-color: var(--k); }
+.det-temp::before, .det-temp::after { --c: var(--k); }
+.det-temp::before { top: -2px; bottom: auto; left: -2px; border-radius: 0 0 3px 0; }
+html.detect-all .proj .det { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .det-temp { animation: det-in 0.45s cubic-bezier(0.2, 0.9, 0.25, 1) both; }
+}
+
+/* =========================================================
    Command palette
    ========================================================= */
 .cmdk {
