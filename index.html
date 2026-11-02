@@ -98,7 +98,7 @@
             <li><span class="det-wrap"><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>MSc CS · McGill University<span class="det det-text det-below det-msc" data-label="mcgill_msc" data-conf="0.85" aria-hidden="true"></span></span></li>
           </ul>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#work">Projects<svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+            <a class="btn btn-primary" href="#work">My work<svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
             <a class="btn" href="assets/Mukundh_Jayapal_Resume.pdf"><svg class="icon btn-icon-opt" aria-hidden="true"><use href="#i-file"/></svg>Resume<span class="visually-hidden"> (PDF)</span></a>
             <a class="btn" href="#contact">Contact</a>
           </div>
@@ -121,11 +121,12 @@
       <div class="container">
         <h2 class="sec-title reveal" id="about-title"><span class="sec-idx" aria-hidden="true">01</span>About</h2>
         <div class="about-grid">
-          <p class="about-lead reveal">I build vision&nbsp;+&nbsp;language systems, and the evaluations that show whether they work.</p>
+          <p class="about-lead reveal">I care about the system around the model, and the evidence that it works.</p>
           <div class="about-body reveal">
-            <p>I'm an MSc Computer Science student at McGill University in Montreal. I'm drawn to data science, AI and machine learning, and I like turning algorithms into practical tools: from training deep neural networks to building LLM-powered apps.</p>
-            <p>Most recently I was an AI Engineering Intern (Mitacs) at Trebble FM, where I designed multimodal LLM pipelines for video editing, fine-tuned GPT-4.1 and Qwen3-32B, and built an LLM-as-judge evaluation that moved the team's focus from retraining to data quality. Before that, at Defect Scanner, I deployed real-time computer-vision SOP-adherence systems for manufacturers including Hyundai and Schneider Electric, and prototyped an LLM interface that turns plant operators' requests into code changes. I'm also a Graduate Teaching Assistant in McGill's School of Computer Science.</p>
-            <p class="focus"><strong>What I'm looking for:</strong> full-time AI/ML engineering and forward-deployed engineering roles from January 2027, where I can build GenAI and ML systems and work closely with the people who use them to get them into production.</p>
+            <p>I'm Mukundh. I'm drawn to data science, AI and machine learning, and I like turning algorithms into practical tools, from training deep neural networks to building LLM-powered apps.</p>
+            <p>What I like building most sits where vision meets language: models that look at a page, a scan or a camera feed, and LLM layers that turn what they see into answers people can check.</p>
+            <p>I work best close to the people who will use what I build: ship a small version early, then let a careful evaluation decide what to fix next, even when the answer is better data rather than a bigger model.</p>
+            <p class="focus"><strong>What I'm looking for:</strong> full-time AI/ML engineering and forward-deployed engineering roles from January 2027, where I can build GenAI and ML systems and work directly with the teams who rely on them to get them into production.</p>
           </div>
         </div>
       </div>
@@ -142,9 +143,9 @@
         <article class="case reveal" id="case-vrag" style="--c: var(--c-green)" aria-labelledby="case-vrag-title" data-cmd="Visual RAG Financial Analyst" data-cmd-group="Case study">
           <span class="case-tag" aria-hidden="true">document_ai 0.93</span>
           <div class="case-head">
-            <p class="case-meta"><span>Case study 01</span><span class="mono">visual-financial-rag</span></p>
+            <p class="case-meta"><span>Case study</span><span class="mono">visual-financial-rag</span></p>
             <h3 id="case-vrag-title">Visual RAG Financial Analyst</h3>
-            <p class="case-lede">A multimodal RAG system that uses computer vision and LLMs to analyze complex financial PDFs such as 10-K filings. YOLOv8 finds the tables, a vision-language model summarizes them, and every answer cites the exact table image it came from.</p>
+            <p class="case-lede">A multimodal RAG system that uses computer vision and LLMs to analyze complex financial PDFs such as 10-K filings.</p>
             <ul class="tags" aria-label="Technologies">
               <li>Python</li><li>LlamaIndex</li><li>YOLOv8</li><li>Gemini / OpenRouter</li><li>Streamlit</li><li>Docker</li>
             </ul>
@@ -161,17 +162,17 @@
           <div class="case-grid">
             <div class="cell"><h4>Problem</h4><p>Financial analysts spend hours cross-referencing the narrative text and the tables in 10-K filings. Traditional RAG struggles here: OCR loses table structure, charts and graphs get ignored, and context is lost between pages.</p></div>
             <div class="cell"><h4>Approach</h4><p>Look at the filing instead of just reading it. YOLOv8 detects the tables, GPT-4o or Gemini reads and summarizes each one, and LlamaIndex builds a fresh index for every uploaded document. A split-screen Streamlit app shows the original PDF next to the chat.</p></div>
-            <div class="cell"><h4>What was hard</h4><p>Making answers trustworthy when the facts live in tables. Each answer carries a visual citation, the exact image of the table it used, so an analyst can check a number against the source. Large filings were slow to ingest, so table processing runs on concurrent vision threads.</p></div>
-            <div class="cell"><h4>Result</h4><p>Ingestion runs 5× faster with concurrent vision threads, every answer cites its source table, and the app runs as a live Streamlit demo or a single Docker container.</p></div>
+            <div class="cell"><h4>What was hard</h4><p>Making answers trustworthy when the facts live in tables. Each answer carries a visual citation, the exact image of the table it used, so an analyst can check a number against the source. Large filings were also slow to ingest.</p></div>
+            <div class="cell"><h4>Result</h4><p>Ingestion runs 5× faster with concurrent vision threads, and the app runs as a live Streamlit demo or a single Docker container.</p></div>
           </div>
         </article>
 
         <article class="case reveal" id="case-forecast" style="--c: var(--c-pink)" aria-labelledby="case-forecast-title" data-cmd="ForecastBench Expert Personas" data-cmd-group="Case study">
           <span class="case-tag" aria-hidden="true">llm_eval 0.96</span>
           <div class="case-head">
-            <p class="case-meta"><span>Case study 02</span><span class="mono">ForecastBench_expert_personas</span></p>
+            <p class="case-meta"><span>Case study</span><span class="mono">ForecastBench_expert_personas</span></p>
             <h3 id="case-forecast-title">ForecastBench Expert Personas</h3>
-            <p class="case-lede">Team research on how expert personas change LLM forecasts on ForecastBench. I designed LLM judges that measure reasoning drift and ran the final evaluation on 9 models: topic-specific expert personas improved Brier scores for 7 of them.</p>
+            <p class="case-lede">Team research on how expert personas change LLM forecasts on ForecastBench. I designed the LLM judges that measure reasoning drift and ran the final evaluation on 9 models.</p>
             <ul class="tags" aria-label="Technologies">
               <li>Python</li><li>OpenAI API</li><li>Gemini API</li><li>LLM-as-judge</li><li>pandas</li><li>Plotly</li>
             </ul>
@@ -181,24 +182,25 @@
             </div>
           </div>
           <figure class="pipeline">
-            <figcaption class="visually-hidden">Pipeline: ForecastBench (Real-world forecasting questions) → Personas (Topic expert, general expert or none) → 9 LLMs (Each returns a probability + reasoning) → Brier scores (Mean and relative Brier) → LLM judge (Rates reasoning on a 1–5 rubric).</figcaption>
-            <svg class="pipe pipe-wide" viewBox="0 0 1000 144" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="1" y="34" width="174" height="104" rx="6"/><rect class="tab" x="1" y="14" width="81" height="20" rx="3"/><text class="tab-t" x="8" y="28">questions</text><text class="n-title" x="14" y="68">ForecastBench</text><text class="n-sub" x="14" y="94">real-world</text><text class="n-sub" x="14" y="113">forecasting questions</text></g><path class="wire" style="--i:0" pathLength="1" d="M178 86.0 H202"/><path class="head" style="--i:0" d="M196 81.0 L203 86.0 L196 91.0"/><g class="node" style="--i:1"><rect class="box" x="207" y="34" width="174" height="104" rx="6"/><rect class="tab" x="207" y="14" width="66" height="20" rx="3"/><text class="tab-t" x="214" y="28">persona</text><text class="n-title" x="220" y="68">Personas</text><text class="n-sub" x="220" y="94">topic expert, general</text><text class="n-sub" x="220" y="113">expert or none</text></g><path class="wire" style="--i:1" pathLength="1" d="M384 86.0 H408"/><path class="head" style="--i:1" d="M402 81.0 L409 86.0 L402 91.0"/><g class="node" style="--i:2"><rect class="box" x="413" y="34" width="174" height="104" rx="6"/><rect class="tab" x="413" y="14" width="73" height="20" rx="3"/><text class="tab-t" x="420" y="28">forecast</text><text class="n-title" x="426" y="68">9 LLMs</text><text class="n-sub" x="426" y="94">each returns a</text><text class="n-sub" x="426" y="113">probability + reasons</text></g><path class="wire" style="--i:2" pathLength="1" d="M590 86.0 H614"/><path class="head" style="--i:2" d="M608 81.0 L615 86.0 L608 91.0"/><g class="node" style="--i:3"><rect class="box" x="619" y="34" width="174" height="104" rx="6"/><rect class="tab" x="619" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="626" y="28">score</text><text class="n-title" x="632" y="68">Brier scores</text><text class="n-sub" x="632" y="94">mean and</text><text class="n-sub" x="632" y="113">relative Brier</text></g><path class="wire" style="--i:3" pathLength="1" d="M796 86.0 H820"/><path class="head" style="--i:3" d="M814 81.0 L821 86.0 L814 91.0"/><g class="node" style="--i:4"><rect class="box" x="825" y="34" width="174" height="104" rx="6"/><rect class="tab" x="825" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="832" y="28">judge</text><text class="n-title" x="838" y="68">LLM judge</text><text class="n-sub" x="838" y="94">rates reasoning on</text><text class="n-sub" x="838" y="113">a 1–5 rubric</text></g></svg>
-            <svg class="pipe pipe-tall" viewBox="0 0 340 492" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="2" y="22" width="334" height="66" rx="6"/><rect class="tab" x="2" y="2" width="90" height="20" rx="3"/><text class="tab-t" x="10" y="16">questions</text><text class="n-title" x="16" y="50">ForecastBench</text><text class="n-sub" x="16" y="72">Real-world forecasting questions</text></g><path class="wire" style="--i:0" pathLength="1" d="M300 90 V118"/><path class="head" style="--i:0" d="M295 112 L300 119 L305 112"/><g class="node" style="--i:1"><rect class="box" x="2" y="122" width="334" height="66" rx="6"/><rect class="tab" x="2" y="102" width="73" height="20" rx="3"/><text class="tab-t" x="10" y="116">persona</text><text class="n-title" x="16" y="150">Personas</text><text class="n-sub" x="16" y="172">Topic expert, general expert or none</text></g><path class="wire" style="--i:1" pathLength="1" d="M300 190 V218"/><path class="head" style="--i:1" d="M295 212 L300 219 L305 212"/><g class="node" style="--i:2"><rect class="box" x="2" y="222" width="334" height="66" rx="6"/><rect class="tab" x="2" y="202" width="82" height="20" rx="3"/><text class="tab-t" x="10" y="216">forecast</text><text class="n-title" x="16" y="250">9 LLMs</text><text class="n-sub" x="16" y="272">Each returns a probability + reasoning</text></g><path class="wire" style="--i:2" pathLength="1" d="M300 290 V318"/><path class="head" style="--i:2" d="M295 312 L300 319 L305 312"/><g class="node" style="--i:3"><rect class="box" x="2" y="322" width="334" height="66" rx="6"/><rect class="tab" x="2" y="302" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="316">score</text><text class="n-title" x="16" y="350">Brier scores</text><text class="n-sub" x="16" y="372">Mean and relative Brier</text></g><path class="wire" style="--i:3" pathLength="1" d="M300 390 V418"/><path class="head" style="--i:3" d="M295 412 L300 419 L305 412"/><g class="node" style="--i:4"><rect class="box" x="2" y="422" width="334" height="66" rx="6"/><rect class="tab" x="2" y="402" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="416">judge</text><text class="n-title" x="16" y="450">LLM judge</text><text class="n-sub" x="16" y="472">Rates reasoning on a 1–5 rubric</text></g></svg>
+            <figcaption class="visually-hidden">Pipeline: ForecastBench (Real-world forecasting questions) → Personas (Topic expert, general expert or none) → 9 LLMs (Each returns a probability + reasoning) → Brier scores (Mean and relative Brier) → LLM judge (Rates reasoning on a 1–5 rubric). My part: running the 9 LLMs and designing the LLM judge.</figcaption>
+            <svg class="pipe pipe-wide" viewBox="0 0 1000 144" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="1" y="34" width="174" height="104" rx="6"/><rect class="tab" x="1" y="14" width="81" height="20" rx="3"/><text class="tab-t" x="8" y="28">questions</text><text class="n-title" x="14" y="68">ForecastBench</text><text class="n-sub" x="14" y="94">real-world</text><text class="n-sub" x="14" y="113">forecasting questions</text></g><path class="wire" style="--i:0" pathLength="1" d="M178 86.0 H202"/><path class="head" style="--i:0" d="M196 81.0 L203 86.0 L196 91.0"/><g class="node" style="--i:1"><rect class="box" x="207" y="34" width="174" height="104" rx="6"/><rect class="tab" x="207" y="14" width="66" height="20" rx="3"/><text class="tab-t" x="214" y="28">persona</text><text class="n-title" x="220" y="68">Personas</text><text class="n-sub" x="220" y="94">topic expert, general</text><text class="n-sub" x="220" y="113">expert or none</text></g><path class="wire" style="--i:1" pathLength="1" d="M384 86.0 H408"/><path class="head" style="--i:1" d="M402 81.0 L409 86.0 L402 91.0"/><g class="node mine" style="--i:2"><rect class="box" x="413" y="34" width="174" height="104" rx="6"/><rect class="tab" x="413" y="14" width="73" height="20" rx="3"/><text class="tab-t" x="420" y="28">forecast</text><text class="n-title" x="426" y="68">9 LLMs</text><text class="n-sub" x="426" y="94">each returns a</text><text class="n-sub" x="426" y="113">probability + reasons</text></g><path class="wire" style="--i:2" pathLength="1" d="M590 86.0 H614"/><path class="head" style="--i:2" d="M608 81.0 L615 86.0 L608 91.0"/><g class="node" style="--i:3"><rect class="box" x="619" y="34" width="174" height="104" rx="6"/><rect class="tab" x="619" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="626" y="28">score</text><text class="n-title" x="632" y="68">Brier scores</text><text class="n-sub" x="632" y="94">mean and</text><text class="n-sub" x="632" y="113">relative Brier</text></g><path class="wire" style="--i:3" pathLength="1" d="M796 86.0 H820"/><path class="head" style="--i:3" d="M814 81.0 L821 86.0 L814 91.0"/><g class="node mine" style="--i:4"><rect class="box" x="825" y="34" width="174" height="104" rx="6"/><rect class="tab" x="825" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="832" y="28">judge</text><text class="n-title" x="838" y="68">LLM judge</text><text class="n-sub" x="838" y="94">rates reasoning on</text><text class="n-sub" x="838" y="113">a 1–5 rubric</text></g></svg>
+            <svg class="pipe pipe-tall" viewBox="0 0 340 492" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="2" y="22" width="334" height="66" rx="6"/><rect class="tab" x="2" y="2" width="90" height="20" rx="3"/><text class="tab-t" x="10" y="16">questions</text><text class="n-title" x="16" y="50">ForecastBench</text><text class="n-sub" x="16" y="72">Real-world forecasting questions</text></g><path class="wire" style="--i:0" pathLength="1" d="M300 90 V118"/><path class="head" style="--i:0" d="M295 112 L300 119 L305 112"/><g class="node" style="--i:1"><rect class="box" x="2" y="122" width="334" height="66" rx="6"/><rect class="tab" x="2" y="102" width="73" height="20" rx="3"/><text class="tab-t" x="10" y="116">persona</text><text class="n-title" x="16" y="150">Personas</text><text class="n-sub" x="16" y="172">Topic expert, general expert or none</text></g><path class="wire" style="--i:1" pathLength="1" d="M300 190 V218"/><path class="head" style="--i:1" d="M295 212 L300 219 L305 212"/><g class="node mine" style="--i:2"><rect class="box" x="2" y="222" width="334" height="66" rx="6"/><rect class="tab" x="2" y="202" width="82" height="20" rx="3"/><text class="tab-t" x="10" y="216">forecast</text><text class="n-title" x="16" y="250">9 LLMs</text><text class="n-sub" x="16" y="272">Each returns a probability + reasoning</text></g><path class="wire" style="--i:2" pathLength="1" d="M300 290 V318"/><path class="head" style="--i:2" d="M295 312 L300 319 L305 312"/><g class="node" style="--i:3"><rect class="box" x="2" y="322" width="334" height="66" rx="6"/><rect class="tab" x="2" y="302" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="316">score</text><text class="n-title" x="16" y="350">Brier scores</text><text class="n-sub" x="16" y="372">Mean and relative Brier</text></g><path class="wire" style="--i:3" pathLength="1" d="M300 390 V418"/><path class="head" style="--i:3" d="M295 412 L300 419 L305 412"/><g class="node mine" style="--i:4"><rect class="box" x="2" y="422" width="334" height="66" rx="6"/><rect class="tab" x="2" y="402" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="416">judge</text><text class="n-title" x="16" y="450">LLM judge</text><text class="n-sub" x="16" y="472">Rates reasoning on a 1–5 rubric</text></g></svg>
+            <p class="pipe-key" aria-hidden="true"><span class="key-mine"></span>My part</p>
           </figure>
           <div class="case-grid">
             <div class="cell"><h4>Problem</h4><p>Do expert personas actually make LLMs better forecasters? The team studied how expert personas behave on ForecastBench, scoring each model's forecasts with mean and relative Brier scores.</p></div>
             <div class="cell"><h4>Approach</h4><p>A series of experiments: persona system prompts, few-shot expert elicitation, top- versus bottom-ranked example forecasts, random versus topic-relevant examples, and all seven topic experts forecasting every topic, including ones outside their expertise.</p></div>
             <div class="cell"><h4>What was hard</h4><p>Judging the reasoning, not just the number. One experiment rates how similar two forecasts' reasoning is on a 1–5 rubric and tests whether an LLM judge can do that reliably; another checks human evaluations of forecasts against an LLM judge.</p></div>
-            <div class="cell"><h4>Result</h4><p>In the final evaluation across 9 models, topic-specific expert personas improved (lowered) the average Brier score for 7 of them.</p></div>
+            <div class="cell"><h4>Result</h4><p>Across the 9 models in the final evaluation, topic-specific expert personas improved (lowered) the average Brier score for 7 of them.</p></div>
           </div>
         </article>
 
         <article class="case reveal" id="case-openrs" style="--c: var(--c-orange)" aria-labelledby="case-openrs-title" data-cmd="RL for Reasoning in Small LLMs" data-cmd-group="Case study">
           <span class="case-tag" aria-hidden="true">rl_finetune 0.71</span>
           <div class="case-head">
-            <p class="case-meta"><span>Case study 03</span><span class="mono">open-rs</span></p>
+            <p class="case-meta"><span>Case study</span><span class="mono">open-rs</span></p>
             <h3 id="case-openrs-title">RL for Reasoning in Small LLMs</h3>
-            <p class="case-lede">Code from the AAAI 2026 paper on improving reasoning in small LLMs with reinforcement learning (GRPO on DeepSeek-R1-Distill-Qwen-1.5B). For a reinforcement learning course project, my fork adapts GRPO training to a single-GPU SLURM job with DeepSpeed ZeRO-2.</p>
+            <p class="case-lede">My reinforcement learning course project: making GRPO training from the Open RS paper (AAAI 2026) fit on a single GPU.</p>
             <ul class="tags" aria-label="Technologies">
               <li>Python</li><li>PyTorch</li><li>Transformers</li><li>GRPO</li><li>DeepSpeed</li><li>SLURM</li>
             </ul>
@@ -208,15 +210,16 @@
             </div>
           </div>
           <figure class="pipeline">
-            <figcaption class="visually-hidden">Pipeline: open-rs data (Compact, curated math problems) → 1.5B policy (R1-Distill-Qwen samples answers) → Rewards (Format + cosine-scaled rewards) → GRPO step (Group-relative policy update) → 1 GPU, ZeRO-2 (SLURM job with CPU optimizer offload).</figcaption>
-            <svg class="pipe pipe-wide" viewBox="0 0 1000 144" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="1" y="34" width="174" height="104" rx="6"/><rect class="tab" x="1" y="14" width="44" height="20" rx="3"/><text class="tab-t" x="8" y="28">data</text><text class="n-title" x="14" y="68">open-rs data</text><text class="n-sub" x="14" y="94">compact, curated</text><text class="n-sub" x="14" y="113">math problems</text></g><path class="wire" style="--i:0" pathLength="1" d="M178 86.0 H202"/><path class="head" style="--i:0" d="M196 81.0 L203 86.0 L196 91.0"/><g class="node" style="--i:1"><rect class="box" x="207" y="34" width="174" height="104" rx="6"/><rect class="tab" x="207" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="214" y="28">policy</text><text class="n-title" x="220" y="68">1.5B policy</text><text class="n-sub" x="220" y="94">R1-Distill-Qwen</text><text class="n-sub" x="220" y="113">samples answers</text></g><path class="wire" style="--i:1" pathLength="1" d="M384 86.0 H408"/><path class="head" style="--i:1" d="M402 81.0 L409 86.0 L402 91.0"/><g class="node" style="--i:2"><rect class="box" x="413" y="34" width="174" height="104" rx="6"/><rect class="tab" x="413" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="420" y="28">reward</text><text class="n-title" x="426" y="68">Rewards</text><text class="n-sub" x="426" y="94">format +</text><text class="n-sub" x="426" y="113">cosine-scaled</text></g><path class="wire" style="--i:2" pathLength="1" d="M590 86.0 H614"/><path class="head" style="--i:2" d="M608 81.0 L615 86.0 L608 91.0"/><g class="node" style="--i:3"><rect class="box" x="619" y="34" width="174" height="104" rx="6"/><rect class="tab" x="619" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="626" y="28">update</text><text class="n-title" x="632" y="68">GRPO step</text><text class="n-sub" x="632" y="94">group-relative</text><text class="n-sub" x="632" y="113">policy update</text></g><path class="wire" style="--i:3" pathLength="1" d="M796 86.0 H820"/><path class="head" style="--i:3" d="M814 81.0 L821 86.0 L814 91.0"/><g class="node" style="--i:4"><rect class="box" x="825" y="34" width="174" height="104" rx="6"/><rect class="tab" x="825" y="14" width="66" height="20" rx="3"/><text class="tab-t" x="832" y="28">compute</text><text class="n-title" x="838" y="68">1 GPU, ZeRO-2</text><text class="n-sub" x="838" y="94">SLURM job with</text><text class="n-sub" x="838" y="113">CPU offload</text></g></svg>
-            <svg class="pipe pipe-tall" viewBox="0 0 340 492" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="2" y="22" width="334" height="66" rx="6"/><rect class="tab" x="2" y="2" width="49" height="20" rx="3"/><text class="tab-t" x="10" y="16">data</text><text class="n-title" x="16" y="50">open-rs data</text><text class="n-sub" x="16" y="72">Compact, curated math problems</text></g><path class="wire" style="--i:0" pathLength="1" d="M300 90 V118"/><path class="head" style="--i:0" d="M295 112 L300 119 L305 112"/><g class="node" style="--i:1"><rect class="box" x="2" y="122" width="334" height="66" rx="6"/><rect class="tab" x="2" y="102" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="116">policy</text><text class="n-title" x="16" y="150">1.5B policy</text><text class="n-sub" x="16" y="172">R1-Distill-Qwen samples answers</text></g><path class="wire" style="--i:1" pathLength="1" d="M300 190 V218"/><path class="head" style="--i:1" d="M295 212 L300 219 L305 212"/><g class="node" style="--i:2"><rect class="box" x="2" y="222" width="334" height="66" rx="6"/><rect class="tab" x="2" y="202" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="216">reward</text><text class="n-title" x="16" y="250">Rewards</text><text class="n-sub" x="16" y="272">Format + cosine-scaled rewards</text></g><path class="wire" style="--i:2" pathLength="1" d="M300 290 V318"/><path class="head" style="--i:2" d="M295 312 L300 319 L305 312"/><g class="node" style="--i:3"><rect class="box" x="2" y="322" width="334" height="66" rx="6"/><rect class="tab" x="2" y="302" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="316">update</text><text class="n-title" x="16" y="350">GRPO step</text><text class="n-sub" x="16" y="372">Group-relative policy update</text></g><path class="wire" style="--i:3" pathLength="1" d="M300 390 V418"/><path class="head" style="--i:3" d="M295 412 L300 419 L305 412"/><g class="node" style="--i:4"><rect class="box" x="2" y="422" width="334" height="66" rx="6"/><rect class="tab" x="2" y="402" width="73" height="20" rx="3"/><text class="tab-t" x="10" y="416">compute</text><text class="n-title" x="16" y="450">1 GPU, ZeRO-2</text><text class="n-sub" x="16" y="472">SLURM job with CPU optimizer offload</text></g></svg>
+            <figcaption class="visually-hidden">Pipeline: open-rs data (Compact, curated math problems) → 1.5B policy (R1-Distill-Qwen samples answers) → Rewards (Format + cosine-scaled rewards) → GRPO step (Group-relative policy update) → 1 GPU, ZeRO-2 (SLURM job with CPU optimizer offload). My part: the single-GPU ZeRO-2 and SLURM setup.</figcaption>
+            <svg class="pipe pipe-wide" viewBox="0 0 1000 144" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="1" y="34" width="174" height="104" rx="6"/><rect class="tab" x="1" y="14" width="44" height="20" rx="3"/><text class="tab-t" x="8" y="28">data</text><text class="n-title" x="14" y="68">open-rs data</text><text class="n-sub" x="14" y="94">compact, curated</text><text class="n-sub" x="14" y="113">math problems</text></g><path class="wire" style="--i:0" pathLength="1" d="M178 86.0 H202"/><path class="head" style="--i:0" d="M196 81.0 L203 86.0 L196 91.0"/><g class="node" style="--i:1"><rect class="box" x="207" y="34" width="174" height="104" rx="6"/><rect class="tab" x="207" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="214" y="28">policy</text><text class="n-title" x="220" y="68">1.5B policy</text><text class="n-sub" x="220" y="94">R1-Distill-Qwen</text><text class="n-sub" x="220" y="113">samples answers</text></g><path class="wire" style="--i:1" pathLength="1" d="M384 86.0 H408"/><path class="head" style="--i:1" d="M402 81.0 L409 86.0 L402 91.0"/><g class="node" style="--i:2"><rect class="box" x="413" y="34" width="174" height="104" rx="6"/><rect class="tab" x="413" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="420" y="28">reward</text><text class="n-title" x="426" y="68">Rewards</text><text class="n-sub" x="426" y="94">format +</text><text class="n-sub" x="426" y="113">cosine-scaled</text></g><path class="wire" style="--i:2" pathLength="1" d="M590 86.0 H614"/><path class="head" style="--i:2" d="M608 81.0 L615 86.0 L608 91.0"/><g class="node" style="--i:3"><rect class="box" x="619" y="34" width="174" height="104" rx="6"/><rect class="tab" x="619" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="626" y="28">update</text><text class="n-title" x="632" y="68">GRPO step</text><text class="n-sub" x="632" y="94">group-relative</text><text class="n-sub" x="632" y="113">policy update</text></g><path class="wire" style="--i:3" pathLength="1" d="M796 86.0 H820"/><path class="head" style="--i:3" d="M814 81.0 L821 86.0 L814 91.0"/><g class="node mine" style="--i:4"><rect class="box" x="825" y="34" width="174" height="104" rx="6"/><rect class="tab" x="825" y="14" width="66" height="20" rx="3"/><text class="tab-t" x="832" y="28">compute</text><text class="n-title" x="838" y="68">1 GPU, ZeRO-2</text><text class="n-sub" x="838" y="94">SLURM job with</text><text class="n-sub" x="838" y="113">CPU offload</text></g></svg>
+            <svg class="pipe pipe-tall" viewBox="0 0 340 492" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="2" y="22" width="334" height="66" rx="6"/><rect class="tab" x="2" y="2" width="49" height="20" rx="3"/><text class="tab-t" x="10" y="16">data</text><text class="n-title" x="16" y="50">open-rs data</text><text class="n-sub" x="16" y="72">Compact, curated math problems</text></g><path class="wire" style="--i:0" pathLength="1" d="M300 90 V118"/><path class="head" style="--i:0" d="M295 112 L300 119 L305 112"/><g class="node" style="--i:1"><rect class="box" x="2" y="122" width="334" height="66" rx="6"/><rect class="tab" x="2" y="102" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="116">policy</text><text class="n-title" x="16" y="150">1.5B policy</text><text class="n-sub" x="16" y="172">R1-Distill-Qwen samples answers</text></g><path class="wire" style="--i:1" pathLength="1" d="M300 190 V218"/><path class="head" style="--i:1" d="M295 212 L300 219 L305 212"/><g class="node" style="--i:2"><rect class="box" x="2" y="222" width="334" height="66" rx="6"/><rect class="tab" x="2" y="202" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="216">reward</text><text class="n-title" x="16" y="250">Rewards</text><text class="n-sub" x="16" y="272">Format + cosine-scaled rewards</text></g><path class="wire" style="--i:2" pathLength="1" d="M300 290 V318"/><path class="head" style="--i:2" d="M295 312 L300 319 L305 312"/><g class="node" style="--i:3"><rect class="box" x="2" y="322" width="334" height="66" rx="6"/><rect class="tab" x="2" y="302" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="316">update</text><text class="n-title" x="16" y="350">GRPO step</text><text class="n-sub" x="16" y="372">Group-relative policy update</text></g><path class="wire" style="--i:3" pathLength="1" d="M300 390 V418"/><path class="head" style="--i:3" d="M295 412 L300 419 L305 412"/><g class="node mine" style="--i:4"><rect class="box" x="2" y="422" width="334" height="66" rx="6"/><rect class="tab" x="2" y="402" width="73" height="20" rx="3"/><text class="tab-t" x="10" y="416">compute</text><text class="n-title" x="16" y="450">1 GPU, ZeRO-2</text><text class="n-sub" x="16" y="472">SLURM job with CPU optimizer offload</text></g></svg>
+            <p class="pipe-key" aria-hidden="true"><span class="key-mine"></span>My part</p>
           </figure>
           <div class="case-grid">
-            <div class="cell"><h4>Problem</h4><p>Can reinforcement learning make a small, 1.5B-parameter model reason better on a tight compute budget? The Open RS paper trains DeepSeek-R1-Distill-Qwen-1.5B with GRPO on 4 NVIDIA A40 GPUs within 24 hours.</p></div>
-            <div class="cell"><h4>Approach</h4><p>The paper adapts GRPO and trains on a compact, curated set of math reasoning problems (7,000 samples). For my course project I re-ran that GRPO training on McGill's teaching cluster, with a new single-GPU DeepSpeed ZeRO-2 config and a SLURM job script.</p></div>
-            <div class="cell"><h4>What was hard</h4><p>Fitting a recipe built for four 48&nbsp;GB GPUs onto one GPU inside a 4-hour job. The job script offloads optimizer state to the CPU, turns off vLLM generation, and cuts GRPO to 2 generations per prompt, 1,024-token completions and a batch of 2 with 8-step gradient accumulation. Memory stayed the limit: one logged run was killed for running out of memory after 50 training steps.</p></div>
-            <div class="cell"><h4>Result</h4><p>The paper reports AMC23 accuracy rising from 63% to 80% and 46.7% on AIME24, ahead of o1-preview, for about $42 of compute. My fork adds the single-GPU setup, plus the logs, checkpoint config and W&amp;B completion tables from a 50-step run.</p></div>
+            <div class="cell"><h4>Problem</h4><p>Fit a GRPO recipe built for four 48&nbsp;GB GPUs onto one GPU, inside a 4-hour SLURM job.</p><p class="context"><span>Paper context</span>The paper asks whether reinforcement learning can make a small, 1.5B-parameter model reason better on a tight compute budget. It trains DeepSeek-R1-Distill-Qwen-1.5B with GRPO on 4 NVIDIA A40 GPUs within 24 hours.</p></div>
+            <div class="cell"><h4>Approach</h4><p>I wrote a single-GPU DeepSpeed ZeRO-2 config and a SLURM job script, and re-ran the paper's GRPO training on McGill's teaching cluster.</p><p class="context"><span>Paper context</span>The training recipe is the paper's: GRPO on a compact, curated set of math reasoning problems (7,000 samples).</p></div>
+            <div class="cell"><h4>What was hard</h4><p>Getting it to fit in one GPU's memory. My job script offloads optimizer state to the CPU, turns off vLLM generation, and cuts GRPO to 2 generations per prompt, 1,024-token completions and a batch of 2 with 8-step gradient accumulation. Memory stayed the limit: one logged run was killed for running out of memory after 50 training steps.</p></div>
+            <div class="cell"><h4>Result</h4><p>My fork adds the single-GPU setup, plus the logs, checkpoint config and W&amp;B completion tables from a 50-step run.</p><p class="context"><span>Paper context</span>The paper reports AMC23 accuracy rising from 63% to 80% and 46.7% on AIME24, ahead of o1-preview, for about $42 of compute.</p></div>
           </div>
         </article>
       </div>
@@ -233,53 +236,40 @@
         <!-- Each project is one <li class="proj">. data-label + data-conf set the hover detection label. -->
         <ol class="proj-list" role="list">
           <li class="proj reveal" id="p-canadian" style="--c: var(--c-cyan)" data-cmd="Canadian Inflation & Recession Monitor" data-cmd-group="Project">
-            <span class="proj-idx" aria-hidden="true">04</span>
             <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/canadian-econ-monitor">Canadian Inflation &amp; Recession Monitor</a></h3><p class="mono">canadian-econ-monitor</p></div>
             <p class="proj-desc">An automated ELT pipeline that loads 1M+ Statistics Canada data points into a MySQL star-schema warehouse to track real vs. nominal retail sales. A Streamlit dashboard shows how inflation erodes purchasing power across provinces and industries.</p>
             <ul class="tags" aria-label="Technologies"><li>Python</li><li>pandas</li><li>MySQL</li><li>Streamlit</li><li>Altair</li><li>Docker</li></ul>
             <span class="det" data-label="data_pipeline" data-conf="0.96" aria-hidden="true"></span>
           </li>
           <li class="proj reveal" id="p-docqa" style="--c: var(--c-violet)" data-cmd="AI Software Manager" data-cmd-group="Project">
-            <span class="proj-idx" aria-hidden="true">05</span>
             <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/document-qa">AI Software Manager</a></h3><p class="mono">document-qa</p></div>
             <p class="proj-desc">A Streamlit app that lets non-technical users change software in plain English. Llama 3.3 70B (via Groq) rewrites the code, the change is committed to GitHub, and the server is told to redeploy.</p>
             <ul class="tags" aria-label="Technologies"><li>Python</li><li>Streamlit</li><li>Groq</li><li>Llama 3.3</li><li>Git automation</li></ul>
             <span class="det" data-label="llm_app" data-conf="0.93" aria-hidden="true"></span>
           </li>
           <li class="proj reveal" id="p-parkinsons" style="--c: var(--c-pink)" data-cmd="Explainable AI for Parkinson's Disease" data-cmd-group="Project">
-            <span class="proj-idx" aria-hidden="true">06</span>
             <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/ParkinsonsDisease_Xai">Explainable AI for Parkinson's Disease</a></h3><p class="mono">ParkinsonsDisease_Xai</p></div>
             <p class="proj-desc">Classifies Parkinson's disease from spiral drawings with a VGG19 + InceptionV3 hybrid, then explains the predictions with LIME and SLICE (CVPR 2024). It shows that LIME's explanations shift between runs while SLICE's stay consistent.</p>
             <ul class="tags" aria-label="Technologies"><li>Python</li><li>PyTorch</li><li>LIME</li><li>SLICE</li><li>scikit-image</li><li>Jupyter</li></ul>
             <span class="det" data-label="explainable_ai" data-conf="0.95" aria-hidden="true"></span>
           </li>
           <li class="proj reveal" id="p-brain" style="--c: var(--c-red)" data-cmd="Brain Tumour Detection with Gemma" data-cmd-group="Project">
-            <span class="proj-idx" aria-hidden="true">07</span>
             <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/BrainTumourDetection">Brain Tumour Detection with Gemma</a></h3><p class="mono">BrainTumourDetection</p></div>
             <p class="proj-desc">A CNN + LSTM model, trained on 7,023 brain MRI images, classifies scans as glioma, meningioma, pituitary tumour or no tumour. Google's Gemma then explains the result in plain language so patients can understand their own scans.</p>
             <ul class="tags" aria-label="Technologies"><li>Python</li><li>TensorFlow</li><li>Keras</li><li>KerasNLP</li><li>Gemma</li></ul>
             <span class="det" data-label="medical_cv" data-conf="0.94" aria-hidden="true"></span>
           </li>
           <li class="proj reveal" id="p-parking" style="--c: var(--c-orange)" data-cmd="Smart Parking Management System" data-cmd-group="Project">
-            <span class="proj-idx" aria-hidden="true">08</span>
             <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/IoT-Project">Smart Parking Management System</a></h3><p class="mono">IoT-Project</p></div>
-            <p class="proj-desc">Detects number plates with YOLOv8 and reads them with Tesseract OCR, then reserves a space for the recognised vehicle and shows availability as a live grid. Updates flow in real time over MQTT, and text-to-speech directs drivers to their spot.</p>
+            <p class="proj-desc">Detects number plates with YOLOv8 and reads them with Tesseract OCR, then reserves a space for the recognized vehicle and shows availability as a live grid. Updates flow in real time over MQTT, and text-to-speech directs drivers to their spot.</p>
             <ul class="tags" aria-label="Technologies"><li>Python</li><li>YOLOv8</li><li>OpenCV</li><li>Tesseract OCR</li><li>MQTT</li><li>Streamlit</li></ul>
             <span class="det" data-label="iot_vision" data-conf="0.92" aria-hidden="true"></span>
           </li>
           <li class="proj reveal" id="p-fitvoyage" style="--c: var(--c-green)" data-cmd="AI Fitness Trainer" data-cmd-group="Project">
-            <span class="proj-idx" aria-hidden="true">09</span>
             <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/FitVoyage">AI Fitness Trainer</a></h3><p class="mono">FitVoyage</p></div>
             <p class="proj-desc">A real-time squat coach that runs in the browser. MediaPipe pose estimation tracks hip, knee and ankle angles from a live webcam stream, counts correct reps and flags mistakes such as knees falling over toes or squatting too deep.</p>
             <ul class="tags" aria-label="Technologies"><li>Python</li><li>MediaPipe</li><li>OpenCV</li><li>Streamlit</li><li>WebRTC</li></ul>
             <span class="det" data-label="pose_estimation" data-conf="0.93" aria-hidden="true"></span>
-          </li>
-          <li class="proj reveal" id="p-salary" style="--c: var(--c-cyan)" data-cmd="Developer Salary Prediction" data-cmd-group="Project">
-            <span class="proj-idx" aria-hidden="true">10</span>
-            <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/SalaryPrediction2023">Developer Salary Prediction</a></h3><p class="mono">SalaryPrediction2023</p></div>
-            <p class="proj-desc">Predicts developer salaries from the Stack Overflow 2023 Developer Survey. A Streamlit app lets you explore the data and get a salary estimate.</p>
-            <ul class="tags" aria-label="Technologies"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>Matplotlib</li><li>Streamlit</li></ul>
-            <span class="det" data-label="regression" data-conf="0.91" aria-hidden="true"></span>
           </li>
         </ol>
       </div>
@@ -325,7 +315,7 @@
             </div>
             <div class="s-proof">
               <p class="s-label">Shown in</p>
-              <ul class="proof-links"><li><a href="#p-parking">Smart Parking Management System</a></li><li><a href="#p-fitvoyage">AI Fitness Trainer</a></li><li><a href="#tl-sop">SOP-adherence systems</a></li></ul>
+              <ul class="proof-links"><li><a href="#p-parking">Smart Parking Management System</a></li><li><a href="#p-fitvoyage">AI Fitness Trainer</a></li><li><a href="#tl-sop">SOP-adherence work at Defect Scanner</a></li></ul>
               <p class="s-tools">YOLOv8 · OpenCV · MediaPipe · Tesseract OCR · WebRTC · MQTT</p>
             </div>
           </li>
@@ -337,7 +327,7 @@
             </div>
             <div class="s-proof">
               <p class="s-label">Shown in</p>
-              <ul class="proof-links"><li><a href="#case-openrs">RL for Reasoning in Small LLMs</a></li><li><a href="#p-parkinsons">Explainable AI for Parkinson's</a></li><li><a href="#p-brain">Brain Tumour Detection</a></li></ul>
+              <ul class="proof-links"><li><a href="#case-openrs">RL for Reasoning in Small LLMs</a></li><li><a href="#p-parkinsons">Explainable AI for Parkinson's Disease</a></li><li><a href="#p-brain">Brain Tumour Detection with Gemma</a></li></ul>
               <p class="s-tools">PyTorch · TensorFlow / Keras · Hugging Face Transformers · GRPO / DeepSpeed · SLURM · scikit-learn · LIME / SLICE (XAI) · Gemma (KerasNLP)</p>
             </div>
           </li>
@@ -349,7 +339,7 @@
             </div>
             <div class="s-proof">
               <p class="s-label">Shown in</p>
-              <ul class="proof-links"><li><a href="#p-canadian">Canadian Inflation &amp; Recession Monitor</a></li><li><a href="#p-docqa">AI Software Manager</a></li><li><a href="#p-salary">Developer Salary Prediction</a></li></ul>
+              <ul class="proof-links"><li><a href="#p-canadian">Canadian Inflation &amp; Recession Monitor</a></li><li><a href="#p-docqa">AI Software Manager</a></li></ul>
               <p class="s-tools">SQL / MySQL · NumPy · Matplotlib · Seaborn · Altair · Streamlit · Flask · Groq · GitHub Actions · Azure Web Apps · uv · Git</p>
             </div>
           </li>
@@ -370,7 +360,7 @@
             <p class="tl-date">Expected Dec&nbsp;2026</p>
             <div class="tl-body">
               <span class="tl-class">education</span>
-              <h3>M.Sc. Computer Science</h3>
+              <h3>MSc Computer Science</h3>
               <p class="tl-org">McGill University, Montreal</p>
             </div>
           </li>
@@ -395,8 +385,9 @@
             <p class="tl-date">2026</p>
             <div class="tl-body">
               <span class="tl-class">publication</span>
-              <h3><a href="https://doi.org/10.3389/frsip.2026.1821900">SwinPyramidNet</a></h3>
+              <h3><a href="https://doi.org/10.3389/frsip.2026.1821900">SwinPyramidNet: a deep learning network for pear leaf disease classification using hybrid convolutional feature pyramids and Swin transformer</a></h3>
               <p class="tl-org">Frontiers in Signal Processing</p>
+              <p>Classifies pear leaf diseases by combining hybrid convolutional feature pyramids with a Swin transformer.</p>
             </div>
           </li>
           <li class="tl reveal" style="--c: var(--c-orange)">
@@ -405,7 +396,7 @@
               <span class="tl-class">research</span>
               <h3>Reinforcement learning course project</h3>
               <p class="tl-org">COMP 579, McGill University</p>
-              <p>Re-ran GRPO training from the Open RS paper on a single GPU with DeepSpeed ZeRO-2 and SLURM. <a href="#case-openrs">Read the case study</a></p>
+              <p><a href="#case-openrs">Read the case study<span class="visually-hidden">: RL for Reasoning in Small LLMs</span></a></p>
             </div>
           </li>
           <li class="tl reveal" style="--c: var(--c-orange)">
@@ -414,14 +405,14 @@
               <span class="tl-class">research</span>
               <h3>ForecastBench expert personas</h3>
               <p class="tl-org">Team research project</p>
-              <p>Designed LLM judges that measure reasoning drift and ran the final 9-model evaluation. <a href="#case-forecast">Read the case study</a></p>
+              <p><a href="#case-forecast">Read the case study<span class="visually-hidden">: ForecastBench Expert Personas</span></a></p>
             </div>
           </li>
           <li class="tl reveal" style="--c: var(--c-cyan)">
             <p class="tl-date">2025</p>
             <div class="tl-body">
               <span class="tl-class">education</span>
-              <h3>B.Tech. Computer Science &amp; Engineering (AI/ML)</h3>
+              <h3>BTech Computer Science &amp; Engineering (AI/ML)</h3>
               <p class="tl-org">Vellore Institute of Technology, Chennai</p>
             </div>
           </li>
@@ -440,7 +431,7 @@
               <span class="tl-class">work</span>
               <h3>LLM code-change workflow (Azure + DevOps)</h3>
               <p class="tl-org">Defect Scanner</p>
-              <p>Prototyped an LLM interface that turns plant operators' requests into code changes, using LLMs with Microsoft Azure and DevOps pipelines so non-technical users can make changes in plain English. <a href="#p-docqa">See AI Software Manager</a></p>
+              <p>Prototyped an LLM interface that turns plant operators' requests into code changes, built on Microsoft Azure and DevOps pipelines. <a href="#p-docqa">See AI Software Manager</a></p>
             </div>
           </li>
           <li class="tl reveal" style="--c: var(--c-violet)">

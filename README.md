@@ -24,7 +24,7 @@ The design concept is "detected": the site behaves like a computer-vision model 
 
 **Hero detection boxes.** Each box is a `<span class="det" data-label="…" data-conf="…">`. Change `data-label` and `data-conf` to change what the label says. The box on the photo is positioned by `.det-face` in `styles.css` (left/top/width/height as percentages). Adjust it if you swap in a photo with different framing.
 
-**Case studies.** Each is an `<article class="case">` with Problem / Approach / What was hard / Result cells. The pipeline diagrams are inline SVG, with a wide version for desktop and a tall one for phones. Edit the text inside the `<text>` elements to relabel a step.
+**Case studies.** Each is an `<article class="case">` with Problem / Approach / What was hard / Result cells. Cells lead with my own contribution; anything that comes from the paper or the wider team sits in a `<p class="context">` ("Paper context") note below it. The pipeline diagrams are inline SVG, with a wide version for desktop and a tall one for phones. Edit the text inside the `<text>` elements to relabel a step, and add `mine` to a step's `<g class="node">` (in both versions) to highlight it as my part.
 
 **More projects.** Each project is an `<li class="proj">`. Copy one to add a project. The `<span class="det">` inside sets the hover label and score, and `style="--c: var(--c-cyan)"` picks its colour (`green`, `pink`, `cyan`, `orange`, `violet` or `red`).
 
