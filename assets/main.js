@@ -216,6 +216,19 @@
     }
   }
 
+  /* ---------- 3D point-cloud hero: capable desktops only, after the page is idle ---------- */
+  (function () {
+    var frame = $(".hero .frame"), conn = navigator.connection || {};
+    if (!frame || reduce || !("WebGL2RenderingContext" in window)) return;
+    var capable = matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)").matches &&
+      (navigator.hardwareConcurrency || 0) >= 4 && (!navigator.deviceMemory || navigator.deviceMemory >= 4) &&
+      !conn.saveData && !/2g$/.test(conn.effectiveType || "");
+    if (!capable) return;
+    var go = function () { import(new URL("assets/js/hero3d.js", d.baseURI).href).catch(function () { /* stay 2D */ }); };
+    var idle = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 1200); })(go, { timeout: 3000 }); };
+    if (d.readyState === "complete") idle(); else window.addEventListener("load", idle, { once: true });
+  })();
+
   /* ---------- Terminal easter egg: ` key, footer button or palette ---------- */
   var termMod = null;
   var openTerminal = function () {
