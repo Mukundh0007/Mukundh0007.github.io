@@ -92,6 +92,10 @@
       return { el: el, label: el.getAttribute("data-cmd"), kind: el.getAttribute("data-cmd-group") || "Section", id: "cmdk-o" + i };
     });
     var shown = [], active = 0, jumped = false, lastFocus = null;
+    // Semantic search (assets/js/search.js): loads on the first typed query, never on page load.
+    var sem = [], semMod = null, semTimer = 0, semReady = false, semPending = false, semStatus = $("#cmdk-sem"), net = navigator.connection || {};
+    var semAllowed = !net.saveData && !/2g$/.test(net.effectiveType || "");
+    var setSem = function (state, msg) { semReady = state === "ready"; if (semStatus) semStatus.textContent = msg; };
 
     var mark = function () {
       $$("[role=option]", list).forEach(function (li, i) { li.setAttribute("aria-selected", String(i === active)); });
@@ -111,6 +115,12 @@
         var hay = (it.label + " " + it.kind).toLowerCase();
         return words.every(function (w) { return hay.indexOf(w) > -1; });
       });
+      sem.forEach(function (r, i) {
+        var el = d.querySelector(r.sel);
+        if (el && !shown.some(function (it) { return it.el === el; })) {
+          shown.push({ el: el, label: r.title, kind: "semantic " + r.score.toFixed(2), snippet: r.snippet, score: r.score, sem: true, id: "cmdk-s" + i });
+        }
+      });
       active = Math.min(active, Math.max(0, shown.length - 1));
       list.textContent = "";
       shown.forEach(function (it, i) {
@@ -120,6 +130,13 @@
         name.textContent = it.label;
         kind.className = "cmdk-kind";
         kind.textContent = it.kind;
+        if (it.sem) {
+          li.className = "cmdk-sem-opt" + (i && !shown[i - 1].sem ? " is-first" : "");
+          var snip = d.createElement("span");
+          snip.className = "cmdk-snippet";
+          snip.textContent = it.snippet;
+          name.append(snip);
+        }
         li.append(name, kind);
         li.addEventListener("click", function () { run(it); });
         li.addEventListener("mousemove", function () { if (active !== i) { active = i; mark(); } });
@@ -130,7 +147,7 @@
         empty.className = "cmdk-empty";
         empty.setAttribute("role", "option");
         empty.setAttribute("aria-disabled", "true");
-        empty.textContent = "No matches";
+        empty.textContent = semPending ? "No keyword matches. Looking for semantic matches…" : "No matches";
         list.append(empty);
       }
       mark();
@@ -140,22 +157,59 @@
       lastFocus = d.activeElement;
       input.value = "";
       active = 0;
+      sem = [];
+      if (!semReady) setSem("idle", semAllowed ? "Keyword matches appear first; type 3+ characters for semantic matches from an on-device model." : "Semantic search is off to save data; keyword search works.");
       render();
       dlg.showModal();
       input.focus();
+    };
+
+    var cite = function (el, score) {
+      if (getComputedStyle(el).position === "static") el.style.position = "relative";
+      var b = d.createElement("span");
+      b.className = "det det-temp det-cite";
+      b.setAttribute("aria-hidden", "true");
+      b.dataset.label = "match";
+      b.dataset.conf = score.toFixed(2);
+      el.append(b);
+      setTimeout(function () { b.remove(); }, 4500);
     };
 
     var run = function (it) {
       var el = it.el;
       jumped = true;
       dlg.close();
-      if (el.matches("a, button")) { el.click(); return; }
+      if (it.sem) cite(el, it.score);
+      else if (el.matches("a, button")) { el.click(); return; }
       el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
       if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
       el.focus({ preventScroll: true });
     };
 
-    input.addEventListener("input", function () { active = 0; render(); });
+    var querySem = function () {
+      clearTimeout(semTimer);
+      var q = input.value.trim();
+      semPending = q.length >= 3 && semAllowed;
+      if (!semPending) return;
+      semTimer = setTimeout(function () {
+        (semMod || (semMod = import(new URL("assets/js/search.js", d.baseURI).href)))
+          .then(function (m) { return m.load(setSem).then(function () { return m.search(q); }); })
+          .then(function (res) {
+            if (!dlg.open || input.value.trim() !== q) return; // a newer query replaced this one
+            sem = res;
+            semPending = false;
+            render();
+          })
+          .catch(function () {
+            semPending = false;
+            render();
+            if (!semStatus) return;
+            if (semReady) semStatus.textContent = "Semantic search couldn't run that query; keyword results still work.";
+            else if (!/couldn't/.test(semStatus.textContent)) setSem("error", "Semantic search couldn't load; keyword results still work.");
+          });
+      }, 250);
+    };
+    input.addEventListener("input", function () { active = 0; sem = []; querySem(); render(); });
     input.addEventListener("keydown", function (e) {
       var n = shown.length;
       if (e.key === "ArrowDown" || e.key === "ArrowUp") {

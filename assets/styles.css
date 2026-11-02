@@ -868,6 +868,15 @@ html.detect-all .proj .det { opacity: 1; }
 .cmdk-list [role="option"][aria-selected="true"] { border-color: var(--accent); background: var(--bg-3); }
 .cmdk-kind { flex: none; font: 500 0.72rem/1 var(--font-mono); color: var(--ink-2); }
 .cmdk-empty { padding: 1rem 0.75rem; color: var(--ink-2); }
+.cmdk-list [role="option"] > span:first-child { min-width: 0; }
+.cmdk-snippet { display: block; margin-top: 0.15rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 500 0.78rem/1.4 var(--font-display); color: var(--ink-2); }
+.cmdk-sem-opt.is-first { margin-top: 0.4rem; position: relative; }
+.cmdk-sem-opt.is-first::before { content: ""; position: absolute; left: 0.5rem; right: 0.5rem; top: -0.3rem; border-top: 1px dashed var(--line-2); }
+.cmdk-sem { margin: 0; padding: 0.5rem 0.9rem; border-top: 1px solid var(--line); font: 500 0.72rem/1.4 var(--font-mono); color: var(--ink-2); }
+.cmdk-sem:empty { display: none; }
+/* "visual citation" drawn on the source of a semantic match */
+.det-cite { inset: 0; }
+.det-cite::after { inset: 0; }
 .cmdk-foot { display: flex; align-items: center; gap: 0.35rem; margin: 0; padding: 0.6rem 0.9rem; border-top: 1px solid var(--line); font: 500 0.75rem/1 var(--font-mono); color: var(--ink-2); }
 .cmdk-foot kbd + kbd { margin-left: -0.15rem; }
 .cmdk-foot kbd:not(:first-child) { margin-left: 0.5rem; }

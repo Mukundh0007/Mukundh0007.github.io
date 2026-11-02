@@ -10,10 +10,11 @@ The design concept is "detected": the site behaves like a computer-vision model 
 | --- | --- |
 | `index.html` | All the content: hero, About, case studies, more projects, strengths, timeline, contact |
 | `assets/styles.css` | Design tokens (colours for light and dark), layout, detection boxes, animations |
-| `assets/js/` | On-demand feature modules (loaded only when used): `detect.js` + `detect-worker.js` for the live detection demo, `terminal.js` for the terminal, `hero3d.js` for the 3D hero |
+| `assets/js/` | On-demand feature modules (loaded only when used): `detect.js` + `detect-worker.js` for the live detection demo, `terminal.js` for the terminal, `hero3d.js` for the 3D hero, `search.js` for semantic search |
 | `assets/depth/` | Depth map of the photo for the 3D hero |
-| `assets/models/` | Browser-side model files (`yolox_nano.onnx`) and their licences |
+| `assets/models/` | Browser-side model files (`yolox_nano.onnx`, `all-MiniLM-L6-v2/`) and their licences |
 | `assets/samples/` | Sample photos for the detection demo |
+| `assets/search-index.json` | Precomputed embeddings of the page's sections for semantic search |
 | `assets/yolo-saw/` | "What YOLO saw" artifacts (page render, table crop, stored summary in `meta.json`) |
 | `assets/main.js` | Theme toggle, confidence count-ups, scroll reveal, diagram drawing, copy-email, the ⌘K / Ctrl+K palette. The page works without it |
 | `404.html` | "No page detected" error page, same style |
@@ -45,6 +46,8 @@ The design concept is "detected": the site behaves like a computer-vision model 
 
 **Terminal easter egg.** Press <kbd>`</kbd> (or use the footer's Terminal button or the palette) for a small terminal: `help`, `ls projects`, `cat about`, `open <project>`, `resume`, `detect --all`, `clear`, `exit`. It lives in `assets/js/terminal.js`, loads on first use, and reads everything it prints from the page.
 
+**Semantic search (⌘K / Ctrl+K).** Keyword matches appear instantly; after the first typed query (3+ characters), `assets/js/search.js` loads all-MiniLM-L6-v2 (int8, `assets/models/all-MiniLM-L6-v2/`, about 23 MB, plus about 7 MB of ONNX Runtime) via transformers.js and adds semantic matches from `assets/search-index.json`. Choosing one scrolls to that part of the page and outlines it as a "visual citation". It only points to text already on the page. It's skipped with data-saver or on 2G. After editing `index.html`, rebuild the index: `cd tools && npm install && node build-search-index.mjs`. `tools/fetch-minilm.sh` re-downloads the model.
+
 **Command palette.** Any element with a `data-cmd="Label"` attribute shows up in the palette. `data-cmd-group` sets the small tag on the right. Links and buttons are clicked, and anything else is scrolled to.
 
 **Colours and fonts.** Tokens live at the top of `styles.css`: one light block and two identical dark blocks (system preference and manual toggle). Keep the two dark blocks in sync. Fonts are Bricolage Grotesque and JetBrains Mono from Google Fonts, self-hosted for speed (`tools/fetch-fonts.py` re-downloads them).
@@ -73,6 +76,9 @@ Commit and push to `main`. GitHub Pages deploys from the `main` branch, root fol
 | onnxruntime-web 1.30.0 (loaded from jsDelivr) | MIT |
 | Depth Anything V2 Small (used once to make `assets/depth/photo-depth.png`; onnx-community/depth-anything-v2-small @ 4472b73) | Apache-2.0 (the Base/Large variants are non-commercial and weren't used) |
 | three.js 0.186.1 (loaded from jsDelivr) | MIT |
+| all-MiniLM-L6-v2 (`assets/models/all-MiniLM-L6-v2/`, transformers.js export Xenova/all-MiniLM-L6-v2 @ 751bff3, int8) | Apache-2.0 |
+| transformers.js 4.3.1 (loaded from jsDelivr; also used in `tools/`) | Apache-2.0 |
+| linkedom 0.18.13 (`tools/` only) | ISC |
 | Sample photos: astronaut Eileen Collins (NASA) | Public domain |
 | Sample photos: Chelsea the cat (Stéfan van der Walt), coffee cup (Rachel Michetti) | CC0, via scikit-image |
 | `assets/yolo-saw/` page render and table crop | From Apple Inc.'s 2025 Form 10-K (public SEC filing), as processed by visual-financial-rag (my repo; it has no licence file) |

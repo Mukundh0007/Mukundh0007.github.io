@@ -4,6 +4,7 @@
   "description": "One-off asset generation for the portfolio (not used by the site at runtime). Run: npm install, then node <script>.mjs",
   "type": "module",
   "dependencies": {
-    "@huggingface/transformers": "4.3.1"
+    "@huggingface/transformers": "4.3.1",
+    "linkedom": "0.18.13"
   }
 }
