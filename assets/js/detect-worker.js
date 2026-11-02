@@ -1,4 +1,4 @@
-// YOLOX-Nano inference worker (module worker) for the "Run my model" section.
+// YOLOX-Nano inference worker (module worker) for the live detection demo.
 // Keeps inference off the main thread so the page stays smooth on single-threaded WASM.
 // The page passes in the onnxruntime-web URLs it resolved from its importmap, so the
 // pinned CDN version is defined in exactly one place (index.html).

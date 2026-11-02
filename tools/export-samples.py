@@ -1,4 +1,4 @@
-"""Export the "Run my model" sample photos from scikit-image's bundled data.
+"""Export the live detection demo's sample photos from scikit-image's bundled data.
 
 Licences (from scikit-image's docstrings):
   astronaut.jpg  Eileen Collins, NASA Great Images database: public domain

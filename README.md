@@ -10,7 +10,7 @@ The design concept is "detected": the site behaves like a computer-vision model 
 | --- | --- |
 | `index.html` | All the content: hero, About, case studies, more projects, strengths, timeline, contact |
 | `assets/styles.css` | Design tokens (colours for light and dark), layout, detection boxes, animations |
-| `assets/js/` | On-demand feature modules (loaded only when used): `detect.js` + `detect-worker.js` for "Run my model", `terminal.js` for the terminal, `hero3d.js` for the 3D hero |
+| `assets/js/` | On-demand feature modules (loaded only when used): `detect.js` + `detect-worker.js` for the live detection demo, `terminal.js` for the terminal, `hero3d.js` for the 3D hero |
 | `assets/depth/` | Depth map of the photo for the 3D hero |
 | `assets/models/` | Browser-side model files (`yolox_nano.onnx`) and their licences |
 | `assets/samples/` | Sample photos for the detection demo |
@@ -39,7 +39,7 @@ The design concept is "detected": the site behaves like a computer-vision model 
 
 **3D point-cloud hero.** On capable desktops (wide screen, fine pointer, 4+ cores, no data-saver, WebGL2, no reduced motion), `assets/js/hero3d.js` loads three.js after the page is idle and, once the 2D detection sequence has played, turns the photo into a point cloud using `assets/depth/photo-depth.png`, with a 3D box locking onto the face. It pauses when the hero is off-screen or the tab is hidden; everywhere else the 2D hero is unchanged. The depth map was made once with Depth Anything V2 Small: `cd tools && npm install && node make-depth.mjs` (on Node ≥ 22.21 behind a proxy, prefix `NODE_USE_ENV_PROXY=1`).
 
-**Run my model (live detection).** `assets/js/detect.js` loads when the section nears the viewport; the YOLOX-Nano model and onnxruntime-web load only after a visitor picks an image or starts the camera. Inference runs in a Web Worker (`detect-worker.js`) on WebGPU when available, otherwise single-threaded WASM (GitHub Pages can't send the COOP/COEP headers WASM threads need). Library versions are pinned once, in the `<script type="importmap">` in `index.html`. `tools/fetch-yolox.sh` re-downloads the model and `tools/export-samples.py` regenerates the sample photos.
+**Live detection demo.** The detector is Megvii's pretrained YOLOX-Nano (COCO), not a model I trained; the site runs it in the browser. `assets/js/detect.js` loads when the section nears the viewport; the YOLOX-Nano model and onnxruntime-web load only after a visitor picks an image or starts the camera. Inference runs in a Web Worker (`detect-worker.js`) on WebGPU when available, otherwise single-threaded WASM (GitHub Pages can't send the COOP/COEP headers WASM threads need). Library versions are pinned once, in the `<script type="importmap">` in `index.html`. `tools/fetch-yolox.sh` re-downloads the model and `tools/export-samples.py` regenerates the sample photos.
 
 **What YOLO saw (Visual RAG case study).** Real artifacts from github.com/Mukundh0007/visual-financial-rag: page 39 of the Apple 10-K the pipeline processed, the two table crops its YOLOv8 detector saved there, and the gpt-4o-mini summary stored in its index. `tools/make-yolo-saw.py <path-to-that-repo>` rebuilds `assets/yolo-saw/`: it renders the page exactly as the pipeline does and recovers each box by locating the saved crop in the render (it refuses to write if the match isn't near-exact). The pipeline didn't save detector confidences, so none are shown.
 

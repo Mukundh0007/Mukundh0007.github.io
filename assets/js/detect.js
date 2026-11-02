@@ -1,4 +1,4 @@
-// "Run my model": UI for the in-browser YOLOX-Nano demo.
+// Live detection demo: UI for running Megvii's pretrained YOLOX-Nano in the browser.
 // Loaded by main.js when the section comes near the viewport. Nothing heavy loads until
 // the visitor picks an image or starts the camera; then the model (assets/models) and
 // onnxruntime-web (pinned in the page's importmap) are fetched and run in a worker.
@@ -22,7 +22,7 @@ const pending = new Map();
 const setStatus = (msg) => { statusEl.textContent = msg; };
 // Plain-language failure messages (details still go to the console).
 function failMessage(e) {
-  console.warn("[run my model]", e);
+  console.warn("[live detection]", e);
   return /dynamically imported module|Failed to fetch|NetworkError|Load failed|download failed|Importing a module/i.test(String(e && e.message))
     ? "Couldn't download the detector. Check your connection (or any blocker for cdn.jsdelivr.net) and try again."
     : "The detector couldn't run in this browser. Try again, or use a recent Chrome, Edge, Firefox or Safari.";

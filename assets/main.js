@@ -196,7 +196,7 @@
   });
 
   /* ---------- On-demand features: load their code only when needed ---------- */
-  // "Run my model": the module (a few KB) loads when the section nears the viewport;
+  // Live detection demo: the module (a few KB) loads when the section nears the viewport;
   // the model and ONNX Runtime load only after the visitor starts a detection.
   var demo = $("#demo");
   if (demo) {

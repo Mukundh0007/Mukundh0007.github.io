@@ -606,7 +606,7 @@ main { overflow-x: clip; }
 @media (min-width: 700px) { .case-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1100px) { .case-grid { grid-template-columns: repeat(4, 1fr); } }
 
-/* ---------- Run my model (live detection demo) ---------- */
+/* ---------- Live detection demo ---------- */
 .demo { display: grid; gap: 1.75rem; }
 .demo-stage { min-width: 0; }
 .demo-frame { position: relative; }
