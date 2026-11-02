@@ -164,11 +164,12 @@ async function main() {
   await new Promise((r) => setTimeout(r, Math.max(0, SHOW_AT - performance.now())));
   frame.append(canvas, label);
   requestAnimationFrame(() => frame.classList.add("is-3d"));
+  console.info(`[3D hero] on: ${cloud.count} points${visible ? "" : " (starts when the hero is on screen)"}.`);
   wake();
 }
 
 main().catch((e) => {
-  console.warn("[hero3d] staying 2D:", e);
+  console.warn("[3D hero] staying 2D:", e);
   frame?.querySelectorAll(".hero3d, .hero3d-label").forEach((n) => n.remove());
   frame?.classList.remove("is-3d");
 });

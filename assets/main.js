@@ -271,14 +271,19 @@
   }
 
   /* ---------- 3D point-cloud hero: capable desktops only, after the page is idle ---------- */
+  // Add ?3d to the URL to skip the size/hardware/data checks (reduced motion is still respected).
+  // The console says why it stayed 2D.
   (function () {
-    var frame = $(".hero .frame"), conn = navigator.connection || {};
-    if (!frame || reduce || !("WebGL2RenderingContext" in window)) return;
-    var capable = matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)").matches &&
-      (navigator.hardwareConcurrency || 0) >= 4 && (!navigator.deviceMemory || navigator.deviceMemory >= 4) &&
-      !conn.saveData && !/2g$/.test(conn.effectiveType || "");
-    if (!capable) return;
-    var go = function () { import(new URL("assets/js/hero3d.js", d.baseURI).href).catch(function () { /* stay 2D */ }); };
+    var frame = $(".hero .frame"), conn = navigator.connection || {}, force = /[?&]3d\b/.test(location.search);
+    var why = !frame ? "" : reduce ? "reduced motion is on" : !("WebGL2RenderingContext" in window) ? "WebGL2 isn't available"
+      : force ? "" : !matchMedia("(min-width: 1024px)").matches ? "the window is narrower than 1024px"
+      : !matchMedia("(hover: hover) and (pointer: fine)").matches ? "no mouse or trackpad detected"
+      : (navigator.hardwareConcurrency || 0) < 4 ? "fewer than 4 CPU cores reported"
+      : navigator.deviceMemory && navigator.deviceMemory < 4 ? "less than 4 GB of memory reported"
+      : conn.saveData ? "data saver is on" : /2g$/.test(conn.effectiveType || "") ? "the connection is very slow" : "";
+    if (!frame) return;
+    if (why) { console.info("[3D hero] staying 2D: " + why + (reduce ? "." : ". Add ?3d to the URL to try anyway.")); return; }
+    var go = function () { import(new URL("assets/js/hero3d.js", d.baseURI).href).catch(function (e) { console.warn("[3D hero] staying 2D: couldn't load it", e); }); };
     var idle = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 1200); })(go, { timeout: 3000 }); };
     if (d.readyState === "complete") idle(); else window.addEventListener("load", idle, { once: true });
   })();
