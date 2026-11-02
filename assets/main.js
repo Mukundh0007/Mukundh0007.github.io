@@ -282,7 +282,15 @@
       : navigator.deviceMemory && navigator.deviceMemory < 4 ? "less than 4 GB of memory reported"
       : conn.saveData ? "data saver is on" : /2g$/.test(conn.effectiveType || "") ? "the connection is very slow" : "";
     if (!frame) return;
-    if (why) { console.info("[3D hero] staying 2D: " + why + (reduce ? "." : ". Add ?3d to the URL to try anyway.")); return; }
+    if (!why) {
+      // Actually start a WebGL2 context (then release it) before downloading three.js. Without ?3d,
+      // software-only rendering counts as a low-power device.
+      var gl = null;
+      try { gl = document.createElement("canvas").getContext("webgl2", { failIfMajorPerformanceCaveat: !force }); } catch (e) { gl = null; }
+      if (!gl) why = "WebGL couldn't start with hardware acceleration (is \"Use graphics acceleration\" turned off in the browser settings?)";
+      else if (gl.getExtension("WEBGL_lose_context")) gl.getExtension("WEBGL_lose_context").loseContext();
+    }
+    if (why) { console.info("[3D hero] staying 2D: " + why + (reduce || /WebGL/.test(why) && force ? "." : ". Add ?3d to the URL to try anyway.")); return; }
     var go = function () { import(new URL("assets/js/hero3d.js", d.baseURI).href).catch(function (e) { console.warn("[3D hero] staying 2D: couldn't load it", e); }); };
     var idle = function () { (window.requestIdleCallback || function (f) { setTimeout(f, 1200); })(go, { timeout: 3000 }); };
     if (d.readyState === "complete") idle(); else window.addEventListener("load", idle, { once: true });
