@@ -3,25 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mukundh Jayapal · ML &amp; AI Portfolio</title>
+  <title>Mukundh Jayapal · Applied AI Engineer</title>
   <meta name="description" content="Portfolio of Mukundh Jayapal, applied AI engineer and MSc Computer Science student at McGill University, open to AI/ML and forward-deployed engineering roles from January 2027.">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://mukundh0007.github.io/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mukundh Jayapal · ML & AI Portfolio">
-  <meta property="og:description" content="MSc CS student at McGill building multimodal RAG systems, LLM evaluations and computer-vision pipelines.">
+  <meta property="og:site_name" content="Mukundh Jayapal">
+  <meta property="og:title" content="Mukundh Jayapal · Applied AI Engineer">
+  <meta property="og:description" content="Vision + language systems, and the evaluations that show whether they work. Open to AI/ML and forward-deployed engineering roles from Jan 2027.">
   <meta property="og:url" content="https://mukundh0007.github.io/">
+  <meta property="og:image" content="https://mukundh0007.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mukundh Jayapal, applied AI engineer, inside a detection box labelled ml_engineer 0.97">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="assets/styles.css">
   <script>
-    /* Apply a saved theme choice before first paint to avoid a flash. */
+    /* Before first paint: flag JS, apply a saved theme, and note palette support. */
     (function () {
+      var h = document.documentElement;
+      h.className += " js";
       try {
         var t = localStorage.getItem("theme");
-        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        if (t === "light" || t === "dark") h.setAttribute("data-theme", t);
       } catch (e) {}
+      if (typeof HTMLDialogElement === "function") h.className += " has-cmdk";
     })();
   </script>
   <script src="assets/main.js" defer></script>
@@ -32,13 +44,15 @@
     <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
-    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
     <symbol id="i-chart" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
     <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
-    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
     <symbol id="i-fork" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
   </svg>
@@ -47,16 +61,23 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Mukundh Jayapal, back to top">MJ<span aria-hidden="true">.</span></a>
+      <a class="brand" href="#top" aria-label="Mukundh Jayapal, back to top"><span class="brand-box">MJ</span></a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="#strengths">Strengths</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark theme" title="Toggle dark theme" hidden>
+      <button class="cmdk-btn" type="button" aria-haspopup="dialog" aria-controls="cmdk">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <span class="cmdk-btn-label">Jump to</span>
+        <kbd class="cmdk-kbd" aria-hidden="true"><span class="kbd-mod">Ctrl</span>K</kbd>
+      </button>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark theme" title="Toggle dark theme" data-cmd="Toggle light / dark theme" data-cmd-group="Action">
         <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
         <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
       </button>
@@ -65,283 +86,399 @@
 
   <main id="main">
     <!-- ============ HERO ============ -->
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="container hero-inner">
-        <div class="hero-text">
+    <section class="hero" id="top" aria-labelledby="hero-title" data-cmd="Home" data-cmd-group="Section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
           <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to AI/ML &amp; forward-deployed engineering roles · Jan 2027</p>
           <p class="eyebrow">Hi, I'm</p>
-          <h1 id="hero-title">Mukundh Jayapal</h1>
+          <h1 id="hero-title"><span class="det-wrap"><span class="name-line">Mukundh</span> <span class="name-line">Jayapal</span><span class="det det-text det-name" data-label="builder" data-conf="0.94" aria-hidden="true"></span></span></h1>
           <p class="tagline">Applied AI engineer and MSc Computer Science student at McGill University. I build <strong>multimodal RAG systems</strong>, <strong>LLM evaluations</strong> and <strong>computer-vision pipelines</strong>, and ship them to the people who use them.</p>
           <ul class="hero-meta" aria-label="Quick facts">
             <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Montreal, QC</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>MSc CS · McGill University</li>
+            <li><span class="det-wrap"><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>MSc CS · McGill University<span class="det det-text det-below det-msc" data-label="mcgill_msc" data-conf="0.99" aria-hidden="true"></span></span></li>
           </ul>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">See my projects</a>
-            <a class="btn btn-ghost" href="assets/Mukundh_Jayapal_Resume.pdf"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Resume<span class="visually-hidden"> (PDF)</span></a>
-            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+            <a class="btn btn-primary" href="#work">Projects<svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+            <a class="btn" href="assets/Mukundh_Jayapal_Resume.pdf"><svg class="icon btn-icon-opt" aria-hidden="true"><use href="#i-file"/></svg>Resume<span class="visually-hidden"> (PDF)</span></a>
+            <a class="btn" href="#contact">Contact</a>
           </div>
         </div>
 
-        <!-- PHOTO: to change it, replace assets/photo.jpg (square, about 560×560px) -->
-        <img class="avatar" src="assets/photo.jpg" alt="Portrait of Mukundh Jayapal" width="280" height="280">
+        <figure class="viewport">
+          <div class="frame">
+            <!-- PHOTO: replace assets/photo.jpg (4:5, about 640×800px). If you change the framing, adjust .det-face in styles.css. -->
+            <img src="assets/photo.jpg" alt="Portrait of Mukundh Jayapal" width="640" height="800" fetchpriority="high">
+            <span class="det det-face" data-label="ml_engineer" data-conf="0.97" aria-hidden="true"></span>
+            <span class="scan" aria-hidden="true"></span>
+          </div>
+          <figcaption class="hud" aria-hidden="true"><span class="hud-cmd">$ detect --source mukundh.jpg</span><span class="hud-done">3 objects detected</span></figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
-    <section class="section" id="about" aria-labelledby="about-title">
+    <section class="section" id="about" aria-labelledby="about-title" data-cmd="About" data-cmd-group="Section">
       <div class="container">
-        <h2 class="section-title" id="about-title"><span class="section-num" aria-hidden="true">01</span>About</h2>
+        <h2 class="sec-title reveal" id="about-title"><span class="sec-idx" aria-hidden="true">01</span>About</h2>
         <div class="about-grid">
-          <div class="about-text">
+          <p class="about-lead reveal">I build vision&nbsp;+&nbsp;language systems, and the evaluations that show whether they work.</p>
+          <div class="about-body reveal">
             <p>I'm an MSc Computer Science student at McGill University in Montreal. I'm drawn to data science, AI and machine learning, and I like turning algorithms into practical tools: from training deep neural networks to building LLM-powered apps.</p>
             <p>Most recently I was an AI Engineering Intern (Mitacs) at Trebble FM, where I designed multimodal LLM pipelines for video editing, fine-tuned GPT-4.1 and Qwen3-32B, and built an LLM-as-judge evaluation that moved the team's focus from retraining to data quality. Before that, at Defect Scanner, I deployed real-time computer-vision SOP-adherence systems for manufacturers including Hyundai and Schneider Electric, and prototyped an LLM interface that turns plant operators' requests into code changes. I'm also a Graduate Teaching Assistant in McGill's School of Computer Science.</p>
             <p class="focus"><strong>What I'm looking for:</strong> full-time AI/ML engineering and forward-deployed engineering roles from January 2027, where I can build GenAI and ML systems and work closely with the people who use them to get them into production.</p>
           </div>
-
-          <div class="about-aside">
-            <div class="fact">
-              <h3><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>Education</h3>
-              <ul class="edu">
-                <li><strong>M.Sc. Computer Science</strong>, McGill University <span class="muted">Expected Dec 2026</span></li>
-                <li><strong>B.Tech. Computer Science &amp; Engineering (AI/ML)</strong>, Vellore Institute of Technology, Chennai <span class="muted">2025</span></li>
-              </ul>
-            </div>
-            <div class="fact">
-              <h3><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Publications</h3>
-              <ul class="pubs">
-                <li>SwinPyramidNet <span class="muted">Frontiers in Signal Processing, 2026</span></li>
-                <li><a href="https://ieeexplore.ieee.org/document/10881182">Enhanced Corrosion Detection Using YOLO-Based Deep Learning Models</a> <span class="muted">IEEE MoSICom 2024</span></li>
-                <li><a href="https://www.scitepress.org/Papers/2024/128811/128811.pdf">Impact of Big Data Analytics on E-Commerce for Business Application: A Review and Analysis of Its Essence in a Competitive World</a> <span class="muted">SCITEPRESS</span></li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ PROJECTS ============ -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
+    <!-- ============ CASE STUDIES ============ -->
+    <section class="section" id="work" aria-labelledby="work-title" data-cmd="Selected work" data-cmd-group="Section">
       <div class="container">
-        <div class="section-head">
-          <h2 class="section-title" id="projects-title"><span class="section-num" aria-hidden="true">02</span>Projects</h2>
+        <div class="sec-head reveal">
+          <h2 class="sec-title" id="work-title"><span class="sec-idx" aria-hidden="true">02</span>Selected work</h2>
+          <p class="sec-sub">Three projects in depth: the problem, my approach, what was hard and the result.</p>
+        </div>
+
+        <article class="case reveal" id="case-vrag" style="--c: var(--c-green)" aria-labelledby="case-vrag-title" data-cmd="Visual RAG Financial Analyst" data-cmd-group="Case study">
+          <span class="case-tag" aria-hidden="true">document_ai 0.98</span>
+          <div class="case-head">
+            <p class="case-meta"><span>Case study 01</span><span class="mono">visual-financial-rag</span></p>
+            <h3 id="case-vrag-title">Visual RAG Financial Analyst</h3>
+            <p class="case-lede">A multimodal RAG system that uses computer vision and LLMs to analyze complex financial PDFs such as 10-K filings. YOLOv8 finds the tables, a vision-language model summarizes them, and every answer cites the exact table image it came from.</p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Python</li><li>LlamaIndex</li><li>YOLOv8</li><li>Gemini / OpenRouter</li><li>Streamlit</li><li>Docker</li>
+            </ul>
+            <div class="links">
+              <a class="btn btn-sm" href="https://github.com/Mukundh0007/visual-financial-rag"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for Visual RAG Financial Analyst</span></a>
+              <a class="btn btn-sm btn-primary" href="https://mukundh0007-visual-rag.streamlit.app/"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>Live demo<span class="visually-hidden"> of Visual RAG Financial Analyst</span></a>
+            </div>
+          </div>
+          <figure class="pipeline">
+            <figcaption class="visually-hidden">Pipeline: 10-K PDF (Filings full of dense tables) → YOLOv8 (Finds the table regions) → Vision LLM (GPT-4o / Gemini summarizes each table) → LlamaIndex (Fresh vector index per document) → Cited answer (Shows the exact source table image).</figcaption>
+            <svg class="pipe pipe-wide" viewBox="0 0 1000 144" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="1" y="34" width="174" height="104" rx="6"/><rect class="tab" x="1" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="8" y="28">input</text><text class="n-title" x="14" y="68">10-K PDF</text><text class="n-sub" x="14" y="94">filings full of</text><text class="n-sub" x="14" y="113">dense tables</text></g><path class="wire" style="--i:0" pathLength="1" d="M178 86.0 H202"/><path class="head" style="--i:0" d="M196 81.0 L203 86.0 L196 91.0"/><g class="node" style="--i:1"><rect class="box" x="207" y="34" width="174" height="104" rx="6"/><rect class="tab" x="207" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="214" y="28">detect</text><text class="n-title" x="220" y="68">YOLOv8</text><text class="n-sub" x="220" y="94">finds the table</text><text class="n-sub" x="220" y="113">regions</text></g><path class="wire" style="--i:1" pathLength="1" d="M384 86.0 H408"/><path class="head" style="--i:1" d="M402 81.0 L409 86.0 L402 91.0"/><g class="node" style="--i:2"><rect class="box" x="413" y="34" width="174" height="104" rx="6"/><rect class="tab" x="413" y="14" width="44" height="20" rx="3"/><text class="tab-t" x="420" y="28">read</text><text class="n-title" x="426" y="68">Vision LLM</text><text class="n-sub" x="426" y="94">GPT-4o / Gemini</text><text class="n-sub" x="426" y="113">summarizes tables</text></g><path class="wire" style="--i:2" pathLength="1" d="M590 86.0 H614"/><path class="head" style="--i:2" d="M608 81.0 L615 86.0 L608 91.0"/><g class="node" style="--i:3"><rect class="box" x="619" y="34" width="174" height="104" rx="6"/><rect class="tab" x="619" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="626" y="28">index</text><text class="n-title" x="632" y="68">LlamaIndex</text><text class="n-sub" x="632" y="94">fresh vector index</text><text class="n-sub" x="632" y="113">per document</text></g><path class="wire" style="--i:3" pathLength="1" d="M796 86.0 H820"/><path class="head" style="--i:3" d="M814 81.0 L821 86.0 L814 91.0"/><g class="node" style="--i:4"><rect class="box" x="825" y="34" width="174" height="104" rx="6"/><rect class="tab" x="825" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="832" y="28">answer</text><text class="n-title" x="838" y="68">Cited answer</text><text class="n-sub" x="838" y="94">shows the exact</text><text class="n-sub" x="838" y="113">source table image</text></g></svg>
+            <svg class="pipe pipe-tall" viewBox="0 0 340 492" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="2" y="22" width="334" height="66" rx="6"/><rect class="tab" x="2" y="2" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="16">input</text><text class="n-title" x="16" y="50">10-K PDF</text><text class="n-sub" x="16" y="72">Filings full of dense tables</text></g><path class="wire" style="--i:0" pathLength="1" d="M300 90 V118"/><path class="head" style="--i:0" d="M295 112 L300 119 L305 112"/><g class="node" style="--i:1"><rect class="box" x="2" y="122" width="334" height="66" rx="6"/><rect class="tab" x="2" y="102" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="116">detect</text><text class="n-title" x="16" y="150">YOLOv8</text><text class="n-sub" x="16" y="172">Finds the table regions</text></g><path class="wire" style="--i:1" pathLength="1" d="M300 190 V218"/><path class="head" style="--i:1" d="M295 212 L300 219 L305 212"/><g class="node" style="--i:2"><rect class="box" x="2" y="222" width="334" height="66" rx="6"/><rect class="tab" x="2" y="202" width="49" height="20" rx="3"/><text class="tab-t" x="10" y="216">read</text><text class="n-title" x="16" y="250">Vision LLM</text><text class="n-sub" x="16" y="272">GPT-4o / Gemini summarizes each table</text></g><path class="wire" style="--i:2" pathLength="1" d="M300 290 V318"/><path class="head" style="--i:2" d="M295 312 L300 319 L305 312"/><g class="node" style="--i:3"><rect class="box" x="2" y="322" width="334" height="66" rx="6"/><rect class="tab" x="2" y="302" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="316">index</text><text class="n-title" x="16" y="350">LlamaIndex</text><text class="n-sub" x="16" y="372">Fresh vector index per document</text></g><path class="wire" style="--i:3" pathLength="1" d="M300 390 V418"/><path class="head" style="--i:3" d="M295 412 L300 419 L305 412"/><g class="node" style="--i:4"><rect class="box" x="2" y="422" width="334" height="66" rx="6"/><rect class="tab" x="2" y="402" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="416">answer</text><text class="n-title" x="16" y="450">Cited answer</text><text class="n-sub" x="16" y="472">Shows the exact source table image</text></g></svg>
+          </figure>
+          <div class="case-grid">
+            <div class="cell"><h4>Problem</h4><p>Financial analysts spend hours cross-referencing the narrative text and the tables in 10-K filings. Traditional RAG struggles here: OCR loses table structure, charts and graphs get ignored, and context is lost between pages.</p></div>
+            <div class="cell"><h4>Approach</h4><p>Look at the filing instead of just reading it. YOLOv8 detects the tables, GPT-4o or Gemini reads and summarizes each one, and LlamaIndex builds a fresh index for every uploaded document. A split-screen Streamlit app shows the original PDF next to the chat.</p></div>
+            <div class="cell"><h4>What was hard</h4><p>Making answers trustworthy when the facts live in tables. Each answer carries a visual citation, the exact image of the table it used, so an analyst can check a number against the source. Large filings were slow to ingest, so table processing runs on concurrent vision threads.</p></div>
+            <div class="cell"><h4>Result</h4><p>Ingestion runs 5× faster with concurrent vision threads, every answer cites its source table, and the app runs as a live Streamlit demo or a single Docker container.</p></div>
+          </div>
+        </article>
+
+        <article class="case reveal" id="case-forecast" style="--c: var(--c-pink)" aria-labelledby="case-forecast-title" data-cmd="ForecastBench Expert Personas" data-cmd-group="Case study">
+          <span class="case-tag" aria-hidden="true">llm_eval 0.96</span>
+          <div class="case-head">
+            <p class="case-meta"><span>Case study 02</span><span class="mono">ForecastBench_expert_personas</span></p>
+            <h3 id="case-forecast-title">ForecastBench Expert Personas</h3>
+            <p class="case-lede">Team research on how expert personas change LLM forecasts on ForecastBench. I designed LLM judges that measure reasoning drift and ran the final evaluation on 9 models: topic-specific expert personas improved Brier scores for 7 of them.</p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Python</li><li>OpenAI API</li><li>Gemini API</li><li>LLM-as-judge</li><li>pandas</li><li>Plotly</li>
+            </ul>
+            <p class="origin"><svg class="icon" aria-hidden="true"><use href="#i-fork"/></svg>Team project · fork of <a href="https://github.com/AndrewRWilliams/ForecastBench_expert_personas">AndrewRWilliams/ForecastBench_expert_personas</a></p>
+            <div class="links">
+              <a class="btn btn-sm" href="https://github.com/Mukundh0007/ForecastBench_expert_personas"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for ForecastBench Expert Personas</span></a>
+            </div>
+          </div>
+          <figure class="pipeline">
+            <figcaption class="visually-hidden">Pipeline: ForecastBench (Real-world forecasting questions) → Personas (Topic expert, general expert or none) → 9 LLMs (Each returns a probability + reasoning) → Brier scores (Mean and relative Brier) → LLM judge (Rates reasoning on a 1–5 rubric).</figcaption>
+            <svg class="pipe pipe-wide" viewBox="0 0 1000 144" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="1" y="34" width="174" height="104" rx="6"/><rect class="tab" x="1" y="14" width="81" height="20" rx="3"/><text class="tab-t" x="8" y="28">questions</text><text class="n-title" x="14" y="68">ForecastBench</text><text class="n-sub" x="14" y="94">real-world</text><text class="n-sub" x="14" y="113">forecasting questions</text></g><path class="wire" style="--i:0" pathLength="1" d="M178 86.0 H202"/><path class="head" style="--i:0" d="M196 81.0 L203 86.0 L196 91.0"/><g class="node" style="--i:1"><rect class="box" x="207" y="34" width="174" height="104" rx="6"/><rect class="tab" x="207" y="14" width="66" height="20" rx="3"/><text class="tab-t" x="214" y="28">persona</text><text class="n-title" x="220" y="68">Personas</text><text class="n-sub" x="220" y="94">topic expert, general</text><text class="n-sub" x="220" y="113">expert or none</text></g><path class="wire" style="--i:1" pathLength="1" d="M384 86.0 H408"/><path class="head" style="--i:1" d="M402 81.0 L409 86.0 L402 91.0"/><g class="node" style="--i:2"><rect class="box" x="413" y="34" width="174" height="104" rx="6"/><rect class="tab" x="413" y="14" width="73" height="20" rx="3"/><text class="tab-t" x="420" y="28">forecast</text><text class="n-title" x="426" y="68">9 LLMs</text><text class="n-sub" x="426" y="94">each returns a</text><text class="n-sub" x="426" y="113">probability + reasons</text></g><path class="wire" style="--i:2" pathLength="1" d="M590 86.0 H614"/><path class="head" style="--i:2" d="M608 81.0 L615 86.0 L608 91.0"/><g class="node" style="--i:3"><rect class="box" x="619" y="34" width="174" height="104" rx="6"/><rect class="tab" x="619" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="626" y="28">score</text><text class="n-title" x="632" y="68">Brier scores</text><text class="n-sub" x="632" y="94">mean and</text><text class="n-sub" x="632" y="113">relative Brier</text></g><path class="wire" style="--i:3" pathLength="1" d="M796 86.0 H820"/><path class="head" style="--i:3" d="M814 81.0 L821 86.0 L814 91.0"/><g class="node" style="--i:4"><rect class="box" x="825" y="34" width="174" height="104" rx="6"/><rect class="tab" x="825" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="832" y="28">judge</text><text class="n-title" x="838" y="68">LLM judge</text><text class="n-sub" x="838" y="94">rates reasoning on</text><text class="n-sub" x="838" y="113">a 1–5 rubric</text></g></svg>
+            <svg class="pipe pipe-tall" viewBox="0 0 340 492" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="2" y="22" width="334" height="66" rx="6"/><rect class="tab" x="2" y="2" width="90" height="20" rx="3"/><text class="tab-t" x="10" y="16">questions</text><text class="n-title" x="16" y="50">ForecastBench</text><text class="n-sub" x="16" y="72">Real-world forecasting questions</text></g><path class="wire" style="--i:0" pathLength="1" d="M300 90 V118"/><path class="head" style="--i:0" d="M295 112 L300 119 L305 112"/><g class="node" style="--i:1"><rect class="box" x="2" y="122" width="334" height="66" rx="6"/><rect class="tab" x="2" y="102" width="73" height="20" rx="3"/><text class="tab-t" x="10" y="116">persona</text><text class="n-title" x="16" y="150">Personas</text><text class="n-sub" x="16" y="172">Topic expert, general expert or none</text></g><path class="wire" style="--i:1" pathLength="1" d="M300 190 V218"/><path class="head" style="--i:1" d="M295 212 L300 219 L305 212"/><g class="node" style="--i:2"><rect class="box" x="2" y="222" width="334" height="66" rx="6"/><rect class="tab" x="2" y="202" width="82" height="20" rx="3"/><text class="tab-t" x="10" y="216">forecast</text><text class="n-title" x="16" y="250">9 LLMs</text><text class="n-sub" x="16" y="272">Each returns a probability + reasoning</text></g><path class="wire" style="--i:2" pathLength="1" d="M300 290 V318"/><path class="head" style="--i:2" d="M295 312 L300 319 L305 312"/><g class="node" style="--i:3"><rect class="box" x="2" y="322" width="334" height="66" rx="6"/><rect class="tab" x="2" y="302" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="316">score</text><text class="n-title" x="16" y="350">Brier scores</text><text class="n-sub" x="16" y="372">Mean and relative Brier</text></g><path class="wire" style="--i:3" pathLength="1" d="M300 390 V418"/><path class="head" style="--i:3" d="M295 412 L300 419 L305 412"/><g class="node" style="--i:4"><rect class="box" x="2" y="422" width="334" height="66" rx="6"/><rect class="tab" x="2" y="402" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="416">judge</text><text class="n-title" x="16" y="450">LLM judge</text><text class="n-sub" x="16" y="472">Rates reasoning on a 1–5 rubric</text></g></svg>
+          </figure>
+          <div class="case-grid">
+            <div class="cell"><h4>Problem</h4><p>Do expert personas actually make LLMs better forecasters? The team studied how expert personas behave on ForecastBench, scoring each model's forecasts with mean and relative Brier scores.</p></div>
+            <div class="cell"><h4>Approach</h4><p>A series of experiments: persona system prompts, few-shot expert elicitation, top- versus bottom-ranked example forecasts, random versus topic-relevant examples, and all seven topic experts forecasting every topic, including ones outside their expertise.</p></div>
+            <div class="cell"><h4>What was hard</h4><p>Judging the reasoning, not just the number. One experiment rates how similar two forecasts' reasoning is on a 1–5 rubric and tests whether an LLM judge can do that reliably; another checks human evaluations of forecasts against an LLM judge.</p></div>
+            <div class="cell"><h4>Result</h4><p>In the final evaluation across 9 models, topic-specific expert personas improved (lowered) the average Brier score for 7 of them.</p></div>
+          </div>
+        </article>
+
+        <article class="case reveal" id="case-openrs" style="--c: var(--c-orange)" aria-labelledby="case-openrs-title" data-cmd="RL for Reasoning in Small LLMs" data-cmd-group="Case study">
+          <span class="case-tag" aria-hidden="true">rl_finetune 0.95</span>
+          <div class="case-head">
+            <p class="case-meta"><span>Case study 03</span><span class="mono">open-rs</span></p>
+            <h3 id="case-openrs-title">RL for Reasoning in Small LLMs</h3>
+            <p class="case-lede">Code from the AAAI 2026 paper on improving reasoning in small LLMs with reinforcement learning (GRPO on DeepSeek-R1-Distill-Qwen-1.5B). For a reinforcement learning course project, my fork adapts GRPO training to a single-GPU SLURM job with DeepSpeed ZeRO-2.</p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Python</li><li>PyTorch</li><li>Transformers</li><li>GRPO</li><li>DeepSpeed</li><li>SLURM</li>
+            </ul>
+            <p class="origin"><svg class="icon" aria-hidden="true"><use href="#i-fork"/></svg>Fork of <a href="https://github.com/knoveleng/open-rs">knoveleng/open-rs</a></p>
+            <div class="links">
+              <a class="btn btn-sm" href="https://github.com/Mukundh0007/open-rs"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for RL for Reasoning in Small LLMs</span></a>
+            </div>
+          </div>
+          <figure class="pipeline">
+            <figcaption class="visually-hidden">Pipeline: open-rs data (Compact, curated math problems) → 1.5B policy (R1-Distill-Qwen samples answers) → Rewards (Format + cosine-scaled rewards) → GRPO step (Group-relative policy update) → 1 GPU, ZeRO-2 (SLURM job with CPU optimizer offload).</figcaption>
+            <svg class="pipe pipe-wide" viewBox="0 0 1000 144" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="1" y="34" width="174" height="104" rx="6"/><rect class="tab" x="1" y="14" width="44" height="20" rx="3"/><text class="tab-t" x="8" y="28">data</text><text class="n-title" x="14" y="68">open-rs data</text><text class="n-sub" x="14" y="94">compact, curated</text><text class="n-sub" x="14" y="113">math problems</text></g><path class="wire" style="--i:0" pathLength="1" d="M178 86.0 H202"/><path class="head" style="--i:0" d="M196 81.0 L203 86.0 L196 91.0"/><g class="node" style="--i:1"><rect class="box" x="207" y="34" width="174" height="104" rx="6"/><rect class="tab" x="207" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="214" y="28">policy</text><text class="n-title" x="220" y="68">1.5B policy</text><text class="n-sub" x="220" y="94">R1-Distill-Qwen</text><text class="n-sub" x="220" y="113">samples answers</text></g><path class="wire" style="--i:1" pathLength="1" d="M384 86.0 H408"/><path class="head" style="--i:1" d="M402 81.0 L409 86.0 L402 91.0"/><g class="node" style="--i:2"><rect class="box" x="413" y="34" width="174" height="104" rx="6"/><rect class="tab" x="413" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="420" y="28">reward</text><text class="n-title" x="426" y="68">Rewards</text><text class="n-sub" x="426" y="94">format +</text><text class="n-sub" x="426" y="113">cosine-scaled</text></g><path class="wire" style="--i:2" pathLength="1" d="M590 86.0 H614"/><path class="head" style="--i:2" d="M608 81.0 L615 86.0 L608 91.0"/><g class="node" style="--i:3"><rect class="box" x="619" y="34" width="174" height="104" rx="6"/><rect class="tab" x="619" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="626" y="28">update</text><text class="n-title" x="632" y="68">GRPO step</text><text class="n-sub" x="632" y="94">group-relative</text><text class="n-sub" x="632" y="113">policy update</text></g><path class="wire" style="--i:3" pathLength="1" d="M796 86.0 H820"/><path class="head" style="--i:3" d="M814 81.0 L821 86.0 L814 91.0"/><g class="node" style="--i:4"><rect class="box" x="825" y="34" width="174" height="104" rx="6"/><rect class="tab" x="825" y="14" width="66" height="20" rx="3"/><text class="tab-t" x="832" y="28">compute</text><text class="n-title" x="838" y="68">1 GPU, ZeRO-2</text><text class="n-sub" x="838" y="94">SLURM job with</text><text class="n-sub" x="838" y="113">CPU offload</text></g></svg>
+            <svg class="pipe pipe-tall" viewBox="0 0 340 492" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="2" y="22" width="334" height="66" rx="6"/><rect class="tab" x="2" y="2" width="49" height="20" rx="3"/><text class="tab-t" x="10" y="16">data</text><text class="n-title" x="16" y="50">open-rs data</text><text class="n-sub" x="16" y="72">Compact, curated math problems</text></g><path class="wire" style="--i:0" pathLength="1" d="M300 90 V118"/><path class="head" style="--i:0" d="M295 112 L300 119 L305 112"/><g class="node" style="--i:1"><rect class="box" x="2" y="122" width="334" height="66" rx="6"/><rect class="tab" x="2" y="102" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="116">policy</text><text class="n-title" x="16" y="150">1.5B policy</text><text class="n-sub" x="16" y="172">R1-Distill-Qwen samples answers</text></g><path class="wire" style="--i:1" pathLength="1" d="M300 190 V218"/><path class="head" style="--i:1" d="M295 212 L300 219 L305 212"/><g class="node" style="--i:2"><rect class="box" x="2" y="222" width="334" height="66" rx="6"/><rect class="tab" x="2" y="202" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="216">reward</text><text class="n-title" x="16" y="250">Rewards</text><text class="n-sub" x="16" y="272">Format + cosine-scaled rewards</text></g><path class="wire" style="--i:2" pathLength="1" d="M300 290 V318"/><path class="head" style="--i:2" d="M295 312 L300 319 L305 312"/><g class="node" style="--i:3"><rect class="box" x="2" y="322" width="334" height="66" rx="6"/><rect class="tab" x="2" y="302" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="316">update</text><text class="n-title" x="16" y="350">GRPO step</text><text class="n-sub" x="16" y="372">Group-relative policy update</text></g><path class="wire" style="--i:3" pathLength="1" d="M300 390 V418"/><path class="head" style="--i:3" d="M295 412 L300 419 L305 412"/><g class="node" style="--i:4"><rect class="box" x="2" y="422" width="334" height="66" rx="6"/><rect class="tab" x="2" y="402" width="73" height="20" rx="3"/><text class="tab-t" x="10" y="416">compute</text><text class="n-title" x="16" y="450">1 GPU, ZeRO-2</text><text class="n-sub" x="16" y="472">SLURM job with CPU optimizer offload</text></g></svg>
+          </figure>
+          <div class="case-grid">
+            <div class="cell"><h4>Problem</h4><p>Can reinforcement learning make a small, 1.5B-parameter model reason better on a tight compute budget? The Open RS paper trains DeepSeek-R1-Distill-Qwen-1.5B with GRPO on 4 NVIDIA A40 GPUs within 24 hours.</p></div>
+            <div class="cell"><h4>Approach</h4><p>The paper adapts GRPO and trains on a compact, curated set of math reasoning problems (7,000 samples). For my course project I re-ran that GRPO training on McGill's teaching cluster, with a new single-GPU DeepSpeed ZeRO-2 config and a SLURM job script.</p></div>
+            <div class="cell"><h4>What was hard</h4><p>Fitting a recipe built for four 48&nbsp;GB GPUs onto one GPU inside a 4-hour job. The job script offloads optimizer state to the CPU, turns off vLLM generation, and cuts GRPO to 2 generations per prompt, 1,024-token completions and a batch of 2 with 8-step gradient accumulation. Memory stayed the limit: one logged run was killed for running out of memory after 50 training steps.</p></div>
+            <div class="cell"><h4>Result</h4><p>The paper reports AMC23 accuracy rising from 63% to 80% and 46.7% on AIME24, ahead of o1-preview, for about $42 of compute. My fork adds the single-GPU setup, plus the logs, checkpoint config and W&amp;B completion tables from a 50-step run.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ MORE PROJECTS ============ -->
+    <section class="section" id="projects" aria-labelledby="projects-title" data-cmd="More projects" data-cmd-group="Section">
+      <div class="container">
+        <div class="sec-head reveal">
+          <h2 class="sec-title" id="projects-title"><span class="sec-idx" aria-hidden="true">03</span>More projects</h2>
           <a class="text-link" href="https://github.com/Mukundh0007?tab=repositories">All repositories<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
 
-        <!-- Each project is one <article class="card">. Copy one to add a project; delete one to remove it. -->
-        <ul class="card-grid" role="list">
-
-          <li>
-            <article class="card">
-              <p class="card-repo">visual-financial-rag</p>
-              <h3>Visual RAG Financial Analyst</h3>
-              <p>A multimodal RAG system that uses computer vision and LLMs to analyze complex financial PDFs such as 10-K filings. YOLOv8 finds the tables, a vision-language model summarizes them, and every answer cites the exact table image it came from.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>LlamaIndex</li><li>YOLOv8</li><li>Gemini / OpenRouter</li><li>Streamlit</li><li>Docker</li>
-              </ul>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/visual-financial-rag"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for Visual RAG Financial Analyst</span></a>
-                <a href="https://mukundh0007-visual-rag.streamlit.app/"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>Live demo<span class="visually-hidden"> of Visual RAG Financial Analyst</span></a>
-              </div>
-            </article>
+        <!-- Each project is one <li class="proj">. data-label + data-conf set the hover detection label. -->
+        <ol class="proj-list" role="list">
+          <li class="proj reveal" id="p-canadian" style="--c: var(--c-cyan)" data-cmd="Canadian Inflation & Recession Monitor" data-cmd-group="Project">
+            <span class="proj-idx" aria-hidden="true">04</span>
+            <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/canadian-econ-monitor">Canadian Inflation &amp; Recession Monitor</a></h3><p class="mono">canadian-econ-monitor</p></div>
+            <p class="proj-desc">An automated ELT pipeline that loads 1M+ Statistics Canada data points into a MySQL star-schema warehouse to track real vs. nominal retail sales. A Streamlit dashboard shows how inflation erodes purchasing power across provinces and industries.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>pandas</li><li>MySQL</li><li>Streamlit</li><li>Altair</li><li>Docker</li></ul>
+            <span class="det" data-label="data_pipeline" data-conf="0.96" aria-hidden="true"></span>
           </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">canadian-econ-monitor</p>
-              <h3>Canadian Inflation &amp; Recession Monitor</h3>
-              <p>An automated ELT pipeline that loads 1M+ Statistics Canada data points into a MySQL star-schema warehouse to track real vs. nominal retail sales. A Streamlit dashboard shows how inflation erodes purchasing power across provinces and industries.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>pandas</li><li>MySQL</li><li>Streamlit</li><li>Altair</li><li>Docker</li>
-              </ul>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/canadian-econ-monitor"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for Canadian Inflation &amp; Recession Monitor</span></a>
-              </div>
-            </article>
+          <li class="proj reveal" id="p-docqa" style="--c: var(--c-violet)" data-cmd="AI Software Manager" data-cmd-group="Project">
+            <span class="proj-idx" aria-hidden="true">05</span>
+            <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/document-qa">AI Software Manager</a></h3><p class="mono">document-qa</p></div>
+            <p class="proj-desc">A Streamlit app that lets non-technical users change software in plain English. Llama 3.3 70B (via Groq) rewrites the code, the change is committed to GitHub, and the server is told to redeploy.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>Streamlit</li><li>Groq</li><li>Llama 3.3</li><li>Git automation</li></ul>
+            <span class="det" data-label="llm_app" data-conf="0.93" aria-hidden="true"></span>
           </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">ForecastBench_expert_personas</p>
-              <h3>ForecastBench Expert Personas</h3>
-              <p>Team research on how expert personas change LLM forecasts on ForecastBench. I designed LLM judges that measure reasoning drift and ran the final evaluation on 9 models: topic-specific expert personas improved Brier scores for 7 of them.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>OpenAI API</li><li>Gemini API</li><li>LLM-as-judge</li><li>pandas</li><li>Plotly</li>
-              </ul>
-              <p class="card-origin"><svg class="icon" aria-hidden="true"><use href="#i-fork"/></svg>Team project · fork of <a href="https://github.com/AndrewRWilliams/ForecastBench_expert_personas">AndrewRWilliams/ForecastBench_expert_personas</a></p>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/ForecastBench_expert_personas"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for ForecastBench Expert Personas</span></a>
-              </div>
-            </article>
+          <li class="proj reveal" id="p-parkinsons" style="--c: var(--c-pink)" data-cmd="Explainable AI for Parkinson's Disease" data-cmd-group="Project">
+            <span class="proj-idx" aria-hidden="true">06</span>
+            <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/ParkinsonsDisease_Xai">Explainable AI for Parkinson's Disease</a></h3><p class="mono">ParkinsonsDisease_Xai</p></div>
+            <p class="proj-desc">Classifies Parkinson's disease from spiral drawings with a VGG19 + InceptionV3 hybrid, then explains the predictions with LIME and SLICE (CVPR 2024). It shows that LIME's explanations shift between runs while SLICE's stay consistent.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>PyTorch</li><li>LIME</li><li>SLICE</li><li>scikit-image</li><li>Jupyter</li></ul>
+            <span class="det" data-label="explainable_ai" data-conf="0.95" aria-hidden="true"></span>
           </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">open-rs</p>
-              <h3>RL for Reasoning in Small LLMs</h3>
-              <p>Code from the AAAI 2026 paper on improving reasoning in small LLMs with reinforcement learning (GRPO on DeepSeek-R1-Distill-Qwen-1.5B). For a reinforcement learning course project, my fork adapts GRPO training to a single-GPU SLURM job with DeepSpeed ZeRO-2.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>PyTorch</li><li>Transformers</li><li>GRPO</li><li>DeepSpeed</li><li>SLURM</li>
-              </ul>
-              <p class="card-origin"><svg class="icon" aria-hidden="true"><use href="#i-fork"/></svg>Fork of <a href="https://github.com/knoveleng/open-rs">knoveleng/open-rs</a></p>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/open-rs"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for RL for Reasoning in Small LLMs</span></a>
-              </div>
-            </article>
+          <li class="proj reveal" id="p-brain" style="--c: var(--c-red)" data-cmd="Brain Tumour Detection with Gemma" data-cmd-group="Project">
+            <span class="proj-idx" aria-hidden="true">07</span>
+            <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/BrainTumourDetection">Brain Tumour Detection with Gemma</a></h3><p class="mono">BrainTumourDetection</p></div>
+            <p class="proj-desc">A CNN + LSTM model, trained on 7,023 brain MRI images, classifies scans as glioma, meningioma, pituitary tumour or no tumour. Google's Gemma then explains the result in plain language so patients can understand their own scans.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>TensorFlow</li><li>Keras</li><li>KerasNLP</li><li>Gemma</li></ul>
+            <span class="det" data-label="medical_cv" data-conf="0.94" aria-hidden="true"></span>
           </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">document-qa</p>
-              <h3>AI Software Manager</h3>
-              <p>A Streamlit app that lets non-technical users change software in plain English. Llama 3.3 70B (via Groq) rewrites the code, the change is committed to GitHub, and the server is told to redeploy.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>Streamlit</li><li>Groq</li><li>Llama 3.3</li><li>Git automation</li>
-              </ul>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/document-qa"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for AI Software Manager</span></a>
-              </div>
-            </article>
+          <li class="proj reveal" id="p-parking" style="--c: var(--c-orange)" data-cmd="Smart Parking Management System" data-cmd-group="Project">
+            <span class="proj-idx" aria-hidden="true">08</span>
+            <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/IoT-Project">Smart Parking Management System</a></h3><p class="mono">IoT-Project</p></div>
+            <p class="proj-desc">Detects number plates with YOLOv8 and reads them with Tesseract OCR, then reserves a space for the recognised vehicle and shows availability as a live grid. Updates flow in real time over MQTT, and text-to-speech directs drivers to their spot.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>YOLOv8</li><li>OpenCV</li><li>Tesseract OCR</li><li>MQTT</li><li>Streamlit</li></ul>
+            <span class="det" data-label="iot_vision" data-conf="0.92" aria-hidden="true"></span>
           </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">ParkinsonsDisease_Xai</p>
-              <h3>Explainable AI for Parkinson's Disease</h3>
-              <p>Classifies Parkinson's disease from spiral drawings with a VGG19 + InceptionV3 hybrid, then explains the predictions with LIME and SLICE (CVPR 2024). It shows that LIME's explanations shift between runs while SLICE's stay consistent.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>PyTorch</li><li>LIME</li><li>SLICE</li><li>scikit-image</li><li>Jupyter</li>
-              </ul>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/ParkinsonsDisease_Xai"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for Explainable AI for Parkinson's Disease</span></a>
-              </div>
-            </article>
+          <li class="proj reveal" id="p-fitvoyage" style="--c: var(--c-green)" data-cmd="AI Fitness Trainer" data-cmd-group="Project">
+            <span class="proj-idx" aria-hidden="true">09</span>
+            <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/FitVoyage">AI Fitness Trainer</a></h3><p class="mono">FitVoyage</p></div>
+            <p class="proj-desc">A real-time squat coach that runs in the browser. MediaPipe pose estimation tracks hip, knee and ankle angles from a live webcam stream, counts correct reps and flags mistakes such as knees falling over toes or squatting too deep.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>MediaPipe</li><li>OpenCV</li><li>Streamlit</li><li>WebRTC</li></ul>
+            <span class="det" data-label="pose_estimation" data-conf="0.93" aria-hidden="true"></span>
           </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">BrainTumourDetection</p>
-              <h3>Brain Tumour Detection with Gemma</h3>
-              <p>A CNN + LSTM model, trained on 7,023 brain MRI images, classifies scans as glioma, meningioma, pituitary tumour or no tumour. Google's Gemma then explains the result in plain language so patients can understand their own scans.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>TensorFlow</li><li>Keras</li><li>KerasNLP</li><li>Gemma</li>
-              </ul>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/BrainTumourDetection"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for Brain Tumour Detection with Gemma</span></a>
-              </div>
-            </article>
+          <li class="proj reveal" id="p-salary" style="--c: var(--c-cyan)" data-cmd="Developer Salary Prediction" data-cmd-group="Project">
+            <span class="proj-idx" aria-hidden="true">10</span>
+            <div class="proj-title"><h3><a href="https://github.com/Mukundh0007/SalaryPrediction2023">Developer Salary Prediction</a></h3><p class="mono">SalaryPrediction2023</p></div>
+            <p class="proj-desc">Predicts developer salaries from the Stack Overflow 2023 Developer Survey. A Streamlit app lets you explore the data and get a salary estimate.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>Matplotlib</li><li>Streamlit</li></ul>
+            <span class="det" data-label="regression" data-conf="0.91" aria-hidden="true"></span>
           </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">IoT-Project</p>
-              <h3>Smart Parking Management System</h3>
-              <p>Detects number plates with YOLOv8 and reads them with Tesseract OCR, then reserves a space for the recognised vehicle and shows availability as a live grid. Updates flow in real time over MQTT, and text-to-speech directs drivers to their spot.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>YOLOv8</li><li>OpenCV</li><li>Tesseract OCR</li><li>MQTT</li><li>Streamlit</li>
-              </ul>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/IoT-Project"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for Smart Parking Management System</span></a>
-              </div>
-            </article>
-          </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">FitVoyage</p>
-              <h3>AI Fitness Trainer</h3>
-              <p>A real-time squat coach that runs in the browser. MediaPipe pose estimation tracks hip, knee and ankle angles from a live webcam stream, counts correct reps and flags mistakes such as knees falling over toes or squatting too deep.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>MediaPipe</li><li>OpenCV</li><li>Streamlit</li><li>WebRTC</li>
-              </ul>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/FitVoyage"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for AI Fitness Trainer</span></a>
-              </div>
-            </article>
-          </li>
-
-          <li>
-            <article class="card">
-              <p class="card-repo">SalaryPrediction2023</p>
-              <h3>Developer Salary Prediction</h3>
-              <p>Predicts developer salaries from the Stack Overflow 2023 Developer Survey. A Streamlit app lets you explore the data and get a salary estimate.</p>
-              <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>scikit-learn</li><li>pandas</li><li>Matplotlib</li><li>Streamlit</li>
-              </ul>
-              <div class="card-links">
-                <a href="https://github.com/Mukundh0007/SalaryPrediction2023"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code<span class="visually-hidden"> for Developer Salary Prediction</span></a>
-              </div>
-            </article>
-          </li>
-
-        </ul>
+        </ol>
       </div>
     </section>
 
-    <!-- ============ SKILLS ============ -->
-    <section class="section" id="skills" aria-labelledby="skills-title">
+    <!-- ============ STRENGTHS ============ -->
+    <section class="section" id="strengths" aria-labelledby="strengths-title" data-cmd="Strengths" data-cmd-group="Section">
       <div class="container">
-        <div class="section-head">
-          <h2 class="section-title" id="skills-title"><span class="section-num" aria-hidden="true">03</span>Skills</h2>
-          <p class="section-note">Languages and tools used across my GitHub projects.</p>
+        <div class="sec-head reveal">
+          <h2 class="sec-title" id="strengths-title"><span class="sec-idx" aria-hidden="true">04</span>Strengths</h2>
+          <p class="sec-sub">What I'm good at, and the work that shows it.</p>
         </div>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <ul class="chips" role="list">
-              <li>Python</li><li>SQL</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Bash</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h3>Machine learning &amp; vision</h3>
-            <ul class="chips" role="list">
-              <li>PyTorch</li><li>TensorFlow / Keras</li><li>scikit-learn</li><li>YOLOv8 (Ultralytics)</li><li>OpenCV</li><li>MediaPipe</li><li>Tesseract OCR</li><li>LIME / SLICE (XAI)</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h3>LLMs &amp; RAG</h3>
-            <ul class="chips" role="list">
-              <li>LlamaIndex</li><li>OpenAI API</li><li>Gemini API</li><li>Groq</li><li>Gemma (KerasNLP)</li><li>Hugging Face Transformers</li><li>GRPO / DeepSpeed</li><li>LLM-as-judge evaluation</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h3>Data</h3>
-            <ul class="chips" role="list">
-              <li>pandas</li><li>NumPy</li><li>MySQL</li><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>Altair</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h3>Apps &amp; infrastructure</h3>
-            <ul class="chips" role="list">
-              <li>Streamlit</li><li>Flask</li><li>WebRTC</li><li>Docker &amp; Compose</li><li>GitHub Actions</li><li>Azure Web Apps</li><li>SLURM</li><li>MQTT</li><li>uv</li><li>Git</li>
-            </ul>
-          </div>
+        <ol class="strengths" role="list">
+          <li class="strength reveal" style="--c: var(--c-green)">
+            <span class="s-idx" aria-hidden="true">A</span>
+            <div class="s-main">
+              <h3>Multimodal RAG &amp; document AI</h3>
+              <p>Grounding LLM answers in what is actually on the page, including tables and figures, and showing the evidence behind every answer.</p>
+            </div>
+            <div class="s-proof">
+              <p class="s-label">Shown in</p>
+              <ul class="proof-links"><li><a href="#case-vrag">Visual RAG Financial Analyst</a></li></ul>
+              <p class="s-tools">LlamaIndex · YOLOv8 (Ultralytics) · Gemini API · Streamlit · Docker &amp; Compose</p>
+            </div>
+          </li>
+          <li class="strength reveal" style="--c: var(--c-pink)">
+            <span class="s-idx" aria-hidden="true">B</span>
+            <div class="s-main">
+              <h3>LLM evaluation &amp; LLM-as-judge</h3>
+              <p>Designing experiments and judges that show whether a prompt, persona or model change actually helps.</p>
+            </div>
+            <div class="s-proof">
+              <p class="s-label">Shown in</p>
+              <ul class="proof-links"><li><a href="#case-forecast">ForecastBench Expert Personas</a></li><li><a href="#tl-trebble">Trebble FM internship</a></li></ul>
+              <p class="s-tools">OpenAI API · Gemini API · LLM-as-judge evaluation · pandas · Plotly</p>
+            </div>
+          </li>
+          <li class="strength reveal" style="--c: var(--c-orange)">
+            <span class="s-idx" aria-hidden="true">C</span>
+            <div class="s-main">
+              <h3>Real-time computer vision</h3>
+              <p>Detection, OCR and pose pipelines that run on live camera feeds and trigger real actions.</p>
+            </div>
+            <div class="s-proof">
+              <p class="s-label">Shown in</p>
+              <ul class="proof-links"><li><a href="#p-parking">Smart Parking Management System</a></li><li><a href="#p-fitvoyage">AI Fitness Trainer</a></li><li><a href="#tl-sop">SOP-adherence systems</a></li></ul>
+              <p class="s-tools">YOLOv8 · OpenCV · MediaPipe · Tesseract OCR · WebRTC · MQTT</p>
+            </div>
+          </li>
+          <li class="strength reveal" style="--c: var(--c-violet)">
+            <span class="s-idx" aria-hidden="true">D</span>
+            <div class="s-main">
+              <h3>Training, fine-tuning &amp; explainability</h3>
+              <p>Training and fine-tuning models on limited compute, then explaining what they learned.</p>
+            </div>
+            <div class="s-proof">
+              <p class="s-label">Shown in</p>
+              <ul class="proof-links"><li><a href="#case-openrs">RL for Reasoning in Small LLMs</a></li><li><a href="#p-parkinsons">Explainable AI for Parkinson's</a></li><li><a href="#p-brain">Brain Tumour Detection</a></li></ul>
+              <p class="s-tools">PyTorch · TensorFlow / Keras · Hugging Face Transformers · GRPO / DeepSpeed · SLURM · scikit-learn · LIME / SLICE (XAI) · Gemma (KerasNLP)</p>
+            </div>
+          </li>
+          <li class="strength reveal" style="--c: var(--c-cyan)">
+            <span class="s-idx" aria-hidden="true">E</span>
+            <div class="s-main">
+              <h3>Data pipelines &amp; shipped apps</h3>
+              <p>End-to-end pipelines and small apps people can use, from warehouse to dashboard to deploy.</p>
+            </div>
+            <div class="s-proof">
+              <p class="s-label">Shown in</p>
+              <ul class="proof-links"><li><a href="#p-canadian">Canadian Inflation &amp; Recession Monitor</a></li><li><a href="#p-docqa">AI Software Manager</a></li><li><a href="#p-salary">Developer Salary Prediction</a></li></ul>
+              <p class="s-tools">SQL / MySQL · NumPy · Matplotlib · Seaborn · Altair · Streamlit · Flask · Groq · GitHub Actions · Azure Web Apps · uv · Git</p>
+            </div>
+          </li>
+        </ol>
+        <p class="languages reveal"><span class="s-label">Languages</span> Python · SQL · JavaScript · HTML &amp; CSS · Bash</p>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE & RESEARCH ============ -->
+    <section class="section" id="experience" aria-labelledby="experience-title" data-cmd="Experience & research" data-cmd-group="Section">
+      <div class="container">
+        <div class="sec-head reveal">
+          <h2 class="sec-title" id="experience-title"><span class="sec-idx" aria-hidden="true">05</span>Experience &amp; research</h2>
+          <p class="sec-sub">Education, work, research and publications, newest first.</p>
         </div>
+        <ol class="timeline" role="list">
+          <li class="tl reveal" style="--c: var(--c-cyan)">
+            <p class="tl-date">Expected Dec&nbsp;2026</p>
+            <div class="tl-body">
+              <span class="tl-class">education</span>
+              <h3>M.Sc. Computer Science</h3>
+              <p class="tl-org">McGill University, Montreal</p>
+            </div>
+          </li>
+          <li class="tl reveal" style="--c: var(--c-green)">
+            <p class="tl-date">Fall&nbsp;2025&nbsp;–&nbsp;present</p>
+            <div class="tl-body">
+              <span class="tl-class">work</span>
+              <h3>Graduate Teaching Assistant</h3>
+              <p class="tl-org">School of Computer Science, McGill University</p>
+            </div>
+          </li>
+          <li class="tl reveal" id="tl-trebble" style="--c: var(--c-green)">
+            <p class="tl-date">May&nbsp;–&nbsp;Sep&nbsp;2026</p>
+            <div class="tl-body">
+              <span class="tl-class">work</span>
+              <h3>AI Engineering Intern (Mitacs)</h3>
+              <p class="tl-org">Trebble FM, Montreal</p>
+              <p>Designed multimodal LLM pipelines for video editing, fine-tuned GPT-4.1 and Qwen3-32B, and built an LLM-as-judge evaluation that moved the team's focus from retraining to data quality.</p>
+            </div>
+          </li>
+          <li class="tl reveal" style="--c: var(--c-violet)">
+            <p class="tl-date">2026</p>
+            <div class="tl-body">
+              <span class="tl-class">publication</span>
+              <!-- TODO: link SwinPyramidNet once you have its DOI or URL -->
+              <h3>SwinPyramidNet</h3>
+              <p class="tl-org">Frontiers in Signal Processing</p>
+            </div>
+          </li>
+          <li class="tl reveal" style="--c: var(--c-orange)">
+            <p class="tl-date">Winter&nbsp;2026</p>
+            <div class="tl-body">
+              <span class="tl-class">research</span>
+              <h3>Reinforcement learning course project</h3>
+              <p class="tl-org">COMP 579, McGill University</p>
+              <p>Re-ran GRPO training from the Open RS paper on a single GPU with DeepSpeed ZeRO-2 and SLURM. <a href="#case-openrs">Read the case study</a></p>
+            </div>
+          </li>
+          <li class="tl reveal" style="--c: var(--c-orange)">
+            <p class="tl-date">Nov&nbsp;–&nbsp;Dec&nbsp;2025</p>
+            <div class="tl-body">
+              <span class="tl-class">research</span>
+              <h3>ForecastBench expert personas</h3>
+              <p class="tl-org">Team research project</p>
+              <p>Designed LLM judges that measure reasoning drift and ran the final 9-model evaluation. <a href="#case-forecast">Read the case study</a></p>
+            </div>
+          </li>
+          <li class="tl reveal" style="--c: var(--c-cyan)">
+            <p class="tl-date">2025</p>
+            <div class="tl-body">
+              <span class="tl-class">education</span>
+              <h3>B.Tech. Computer Science &amp; Engineering (AI/ML)</h3>
+              <p class="tl-org">Vellore Institute of Technology, Chennai</p>
+            </div>
+          </li>
+          <li class="tl reveal" id="tl-sop" style="--c: var(--c-green)">
+            <p class="tl-date">Summer&nbsp;2024 · Jan&nbsp;–&nbsp;Jun&nbsp;2025</p>
+            <div class="tl-body">
+              <span class="tl-class">work</span>
+              <h3>Object tracking &amp; segmentation for SOP adherence</h3>
+              <p class="tl-org">AI Engineer Intern, Defect Scanner, Chennai</p>
+              <p>Deployed real-time computer-vision SOP-adherence systems for manufacturers including Hyundai and Schneider Electric.</p>
+            </div>
+          </li>
+          <li class="tl reveal" style="--c: var(--c-green)">
+            <p class="tl-date">Mar&nbsp;–&nbsp;May&nbsp;2025</p>
+            <div class="tl-body">
+              <span class="tl-class">work</span>
+              <h3>LLM code-change workflow (Azure + DevOps)</h3>
+              <p class="tl-org">Defect Scanner</p>
+              <p>Prototyped an LLM interface that turns plant operators' requests into code changes, using LLMs with Microsoft Azure and DevOps pipelines so non-technical users can make changes in plain English. <a href="#p-docqa">See AI Software Manager</a></p>
+            </div>
+          </li>
+          <li class="tl reveal" style="--c: var(--c-violet)">
+            <p class="tl-date">2024</p>
+            <div class="tl-body">
+              <span class="tl-class">publication</span>
+              <h3><a href="https://ieeexplore.ieee.org/document/10881182">Enhanced Corrosion Detection Using YOLO-Based Deep Learning Models</a></h3>
+              <p class="tl-org">IEEE MoSICom 2024</p>
+            </div>
+          </li>
+          <li class="tl reveal" style="--c: var(--c-violet)">
+            <p class="tl-date">2024</p>
+            <div class="tl-body">
+              <span class="tl-class">publication</span>
+              <h3><a href="https://www.scitepress.org/Papers/2024/128811/128811.pdf">Impact of Big Data Analytics on E-Commerce for Business Application: A Review and Analysis of Its Essence in a Competitive World</a></h3>
+              <p class="tl-org">SCITEPRESS</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
+    <section class="section" id="contact" aria-labelledby="contact-title" data-cmd="Contact" data-cmd-group="Section">
       <div class="container">
-        <h2 class="section-title" id="contact-title"><span class="section-num" aria-hidden="true">04</span>Contact</h2>
-        <div class="contact-card">
+        <h2 class="sec-title reveal" id="contact-title"><span class="sec-idx" aria-hidden="true">06</span>Contact</h2>
+        <div class="contact reveal">
           <p class="contact-lead">Want to talk about ML, LLM tooling or data projects? I'm always happy to connect.</p>
-          <ul class="contact-list" role="list">
-            <li class="contact-wide">
-              <a class="contact-item" href="mailto:mukundh173@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>mukundh173@gmail.com</a>
-            </li>
-            <li>
-              <a class="contact-item" href="https://www.linkedin.com/in/mukundhjayapal"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
-            </li>
-            <li>
-              <a class="contact-item" href="https://github.com/Mukundh0007"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
-            </li>
-            <li>
-              <a class="contact-item" href="https://www.kaggle.com/mukundhj"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg>Kaggle</a>
-            </li>
-            <li>
-              <a class="contact-item" href="assets/Mukundh_Jayapal_Resume.pdf"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Resume (PDF)</a>
-            </li>
+          <div class="email-row">
+            <a class="email" href="mailto:mukundh173@gmail.com" data-cmd="Email Mukundh" data-cmd-group="Action"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span class="email-text">mukundh173<wbr>@gmail.com</span></a>
+            <button class="btn btn-sm copy-btn" type="button" data-copy="mukundh173@gmail.com" data-cmd="Copy email address" data-cmd-group="Action" hidden><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>Copy</button>
+          </div>
+          <ul class="contact-links" role="list">
+            <li><a href="https://www.linkedin.com/in/mukundhjayapal" data-cmd="LinkedIn profile" data-cmd-group="Link"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+            <li><a href="https://github.com/Mukundh0007" data-cmd="GitHub profile" data-cmd-group="Link"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+            <li><a href="https://www.kaggle.com/mukundhj" data-cmd="Kaggle profile" data-cmd-group="Link"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg>Kaggle</a></li>
+            <li><a href="assets/Mukundh_Jayapal_Resume.pdf" data-cmd="Open resume (PDF)" data-cmd-group="Action"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Resume (PDF)</a></li>
           </ul>
         </div>
       </div>
@@ -352,8 +489,24 @@
     <div class="container footer-inner">
       <p>© <span id="year">2026</span> Mukundh Jayapal</p>
       <a class="footer-gh" href="https://github.com/Mukundh0007"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>github.com/Mukundh0007</a>
+      <p class="footer-hint">Press <kbd><span class="kbd-mod">Ctrl</span> K</kbd> to jump anywhere</p>
       <a href="#top">Back to top</a>
     </div>
   </footer>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <dialog class="cmdk" id="cmdk" aria-label="Jump to a section, project or action">
+    <div class="cmdk-box">
+      <div class="cmdk-field">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="visually-hidden" for="cmdk-input">Search sections, projects and actions</label>
+        <input id="cmdk-input" type="text" role="combobox" aria-expanded="true" aria-controls="cmdk-list" aria-autocomplete="list" autocomplete="off" spellcheck="false" placeholder="Jump to a section, project or action…">
+        <kbd class="cmdk-esc" aria-hidden="true">esc</kbd>
+      </div>
+      <ul id="cmdk-list" class="cmdk-list" role="listbox" aria-label="Results"></ul>
+      <p class="cmdk-foot" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> move <kbd>↵</kbd> open <kbd>esc</kbd> close</p>
+    </div>
+  </dialog>
 </body>
 </html>
