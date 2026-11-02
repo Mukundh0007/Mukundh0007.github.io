@@ -12,10 +12,12 @@ The design concept is "detected": the site behaves like a computer-vision model 
 | `assets/styles.css` | Design tokens (colours for light and dark), layout, detection boxes, animations |
 | `assets/main.js` | Theme toggle, confidence count-ups, scroll reveal, diagram drawing, copy-email, the ⌘K / Ctrl+K palette. The page works without it |
 | `404.html` | "No page detected" error page, same style |
-| `assets/photo.jpg` | Hero photo (4:5) |
+| `assets/photo.jpg`, `assets/photo-*.webp` | Hero photo (4:5) and its responsive WebP sizes |
 | `assets/Mukundh_Jayapal_Resume.pdf` | Resume, linked from the hero and Contact |
 | `assets/og-image.png` | 1200×630 preview image for links shared on LinkedIn, Slack and other sites |
+| `assets/fonts/` | Self-hosted Google Fonts (latin subset) |
 | `assets/favicon.svg` | Browser tab icon |
+| `tools/` | One-off scripts that generated committed assets (fonts, photo sizes, …) |
 | `.nojekyll` | Tells GitHub Pages to serve the files as is |
 
 ## Common edits
@@ -32,9 +34,9 @@ The design concept is "detected": the site behaves like a computer-vision model 
 
 **Command palette.** Any element with a `data-cmd="Label"` attribute shows up in the palette. `data-cmd-group` sets the small tag on the right. Links and buttons are clicked, and anything else is scrolled to.
 
-**Colours and fonts.** Tokens live at the top of `styles.css`: one light block and two identical dark blocks (system preference and manual toggle). Keep the two dark blocks in sync. Fonts are Bricolage Grotesque and JetBrains Mono from Google Fonts.
+**Colours and fonts.** Tokens live at the top of `styles.css`: one light block and two identical dark blocks (system preference and manual toggle). Keep the two dark blocks in sync. Fonts are Bricolage Grotesque and JetBrains Mono from Google Fonts, self-hosted for speed (`tools/fetch-fonts.py` re-downloads them).
 
-**Resume or photo.** Replace the file and keep the same name.
+**Resume or photo.** Replace the file and keep the same name. After changing the photo, run `python3 tools/make-photo-variants.py` to rebuild the WebP sizes.
 
 ## Preview locally
 
@@ -47,3 +49,10 @@ Then visit http://localhost:8000 (and http://localhost:8000/nope to see the 404 
 ## Publishing
 
 Commit and push to `main`. GitHub Pages deploys from the `main` branch, root folder (**Settings → Pages**).
+
+## Licences
+
+| Asset | Licence |
+| --- | --- |
+| Bricolage Grotesque, JetBrains Mono (fonts) | SIL Open Font License 1.1 |
+| Feather icons (inline SVG sprite) | MIT |
