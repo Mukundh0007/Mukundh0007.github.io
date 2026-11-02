@@ -521,6 +521,61 @@ main { overflow-x: clip; }
   .js .pipe .head { transition: opacity 0.2s ease; transition-delay: calc(var(--i) * 260ms + 500ms); }
 }
 
+/* What YOLO saw: real artifacts from the Visual RAG pipeline */
+.saw { margin: 0 0 2rem; padding: clamp(1rem, 2.5vw, 1.5rem); border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.saw-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.4rem 1rem; align-items: start; margin-bottom: 1.25rem; }
+.saw-head h4 {
+  display: flex; align-items: center; gap: 0.5rem;
+  font: 700 0.75rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2);
+}
+.saw-head h4::before { content: ""; width: 0.6rem; height: 0.6rem; border: 2px solid var(--c); border-radius: 2px; }
+.saw-head p { grid-column: 1; margin: 0; max-width: 70ch; color: var(--ink-2); font-size: 0.95rem; }
+.saw-replay { grid-column: 2; grid-row: 1 / span 2; }
+@media (max-width: 599px) { .saw-head { grid-template-columns: minmax(0, 1fr); } .saw-replay { grid-column: 1; grid-row: auto; justify-self: start; } }
+.saw-steps { list-style: none; display: grid; gap: 2.25rem; }
+.saw-step { position: relative; display: grid; gap: 0.55rem; align-content: start; min-width: 0; }
+.saw-step + .saw-step::before {
+  content: "↓"; position: absolute; left: 50%; top: -1.85rem; transform: translateX(-50%);
+  font: 700 1.1rem/1 var(--font-mono); color: var(--c);
+}
+.saw-n { font: 700 0.72rem/1 var(--font-mono); color: var(--c); }
+.saw-frame { position: relative; overflow: hidden; border: 2px solid var(--ink); border-radius: 6px; background: #fff; }
+.saw-frame img { display: block; width: 100%; height: auto; }
+.saw-page { max-width: 360px; }
+/* the page render is white in both themes, so its boxes use the light-theme class colours */
+.saw-box { --c: #0a7a30; --on-c: #ffffff; --b: 3px; --l: 10px; }
+.saw-box::before { font-size: 0.66rem; }
+.saw-box-other { --c: #0a6a8f; border-style: dashed; }
+.saw-scan { position: absolute; inset: 0; z-index: 3; overflow: hidden; pointer-events: none; }
+.saw-scan::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 22%;
+  background: linear-gradient(to bottom, transparent, rgb(10 122 48 / 0.18) 80%, rgb(10 122 48 / 0.9) 98%, #fff 100%);
+  transform: translateY(-110%); opacity: 0;
+}
+.saw-sum { max-height: 22rem; overflow: auto; background: var(--bg-2); border-color: var(--line-2); }
+.saw-sum pre { margin: 0; padding: 0.9rem 1rem; white-space: pre-wrap; overflow-wrap: anywhere; font: 500 0.8rem/1.55 var(--font-mono); color: var(--ink); }
+.saw-orig { display: block; }
+.saw-orig:focus-visible { outline-offset: -3px; }
+.saw-cap { margin: 0; font-size: 0.85rem; color: var(--ink-2); }
+.saw-credit { margin: 1.25rem 0 0; font-size: 0.82rem; color: var(--ink-2); }
+@media (min-width: 900px) {
+  .saw-steps { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5rem; }
+  .saw-step + .saw-step::before { content: "→"; left: -1.75rem; top: 6rem; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js .saw .saw-step, .js .saw .saw-box { opacity: 0; }
+  .js .saw.is-playing .saw-step { animation: saw-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+  .js .saw.is-playing .saw-step:nth-child(2) { animation-delay: 2.2s; }
+  .js .saw.is-playing .saw-step:nth-child(3) { animation-delay: 3s; }
+  .js .saw.is-playing .saw-scan::before { animation: scan 1.3s cubic-bezier(0.5, 0, 0.25, 1) 0.3s both; }
+  .js .saw.is-playing .saw-box-other { animation: det-in 0.5s cubic-bezier(0.2, 0.9, 0.25, 1) 1.4s both; }
+  .js .saw.is-playing .saw-box-focus { animation: det-in 0.5s cubic-bezier(0.2, 0.9, 0.25, 1) 1.75s both; }
+  .js .saw.is-playing .saw-sum pre { animation: saw-type 1.4s steps(24) 3.3s both; }
+  .saw.is-paused, .saw.is-paused *, .saw.is-paused *::before { animation-play-state: paused !important; }
+}
+@keyframes saw-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes saw-type { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+
 .case-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .cell { padding: 1.2rem 1.25rem 1.3rem; background: var(--bg-2); }
 .cell h4 {
@@ -807,5 +862,6 @@ html:not(.js) .demo-samples, html:not(.js) .demo-actions, html:not(.js) .demo-st
 @media print {
   .site-header, .skip-link, .cmdk, .toast, .hero::before, .scan, .hud { display: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
+  .saw-step, .saw-box { opacity: 1 !important; animation: none !important; }
   .case, .strength, .contact { box-shadow: none; break-inside: avoid; }
 }

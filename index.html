@@ -171,6 +171,72 @@
             <svg class="pipe pipe-wide" viewBox="0 0 1000 144" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="1" y="34" width="174" height="104" rx="6"/><rect class="tab" x="1" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="8" y="28">input</text><text class="n-title" x="14" y="68">10-K PDF</text><text class="n-sub" x="14" y="94">filings full of</text><text class="n-sub" x="14" y="113">dense tables</text></g><path class="wire" style="--i:0" pathLength="1" d="M178 86.0 H202"/><path class="head" style="--i:0" d="M196 81.0 L203 86.0 L196 91.0"/><g class="node" style="--i:1"><rect class="box" x="207" y="34" width="174" height="104" rx="6"/><rect class="tab" x="207" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="214" y="28">detect</text><text class="n-title" x="220" y="68">YOLOv8</text><text class="n-sub" x="220" y="94">finds the table</text><text class="n-sub" x="220" y="113">regions</text></g><path class="wire" style="--i:1" pathLength="1" d="M384 86.0 H408"/><path class="head" style="--i:1" d="M402 81.0 L409 86.0 L402 91.0"/><g class="node" style="--i:2"><rect class="box" x="413" y="34" width="174" height="104" rx="6"/><rect class="tab" x="413" y="14" width="44" height="20" rx="3"/><text class="tab-t" x="420" y="28">read</text><text class="n-title" x="426" y="68">Vision LLM</text><text class="n-sub" x="426" y="94">GPT-4o / Gemini</text><text class="n-sub" x="426" y="113">summarizes tables</text></g><path class="wire" style="--i:2" pathLength="1" d="M590 86.0 H614"/><path class="head" style="--i:2" d="M608 81.0 L615 86.0 L608 91.0"/><g class="node" style="--i:3"><rect class="box" x="619" y="34" width="174" height="104" rx="6"/><rect class="tab" x="619" y="14" width="51" height="20" rx="3"/><text class="tab-t" x="626" y="28">index</text><text class="n-title" x="632" y="68">LlamaIndex</text><text class="n-sub" x="632" y="94">fresh vector index</text><text class="n-sub" x="632" y="113">per document</text></g><path class="wire" style="--i:3" pathLength="1" d="M796 86.0 H820"/><path class="head" style="--i:3" d="M814 81.0 L821 86.0 L814 91.0"/><g class="node" style="--i:4"><rect class="box" x="825" y="34" width="174" height="104" rx="6"/><rect class="tab" x="825" y="14" width="58" height="20" rx="3"/><text class="tab-t" x="832" y="28">answer</text><text class="n-title" x="838" y="68">Cited answer</text><text class="n-sub" x="838" y="94">shows the exact</text><text class="n-sub" x="838" y="113">source table image</text></g></svg>
             <svg class="pipe pipe-tall" viewBox="0 0 340 492" aria-hidden="true" focusable="false"><g class="node" style="--i:0"><rect class="box" x="2" y="22" width="334" height="66" rx="6"/><rect class="tab" x="2" y="2" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="16">input</text><text class="n-title" x="16" y="50">10-K PDF</text><text class="n-sub" x="16" y="72">Filings full of dense tables</text></g><path class="wire" style="--i:0" pathLength="1" d="M300 90 V118"/><path class="head" style="--i:0" d="M295 112 L300 119 L305 112"/><g class="node" style="--i:1"><rect class="box" x="2" y="122" width="334" height="66" rx="6"/><rect class="tab" x="2" y="102" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="116">detect</text><text class="n-title" x="16" y="150">YOLOv8</text><text class="n-sub" x="16" y="172">Finds the table regions</text></g><path class="wire" style="--i:1" pathLength="1" d="M300 190 V218"/><path class="head" style="--i:1" d="M295 212 L300 219 L305 212"/><g class="node" style="--i:2"><rect class="box" x="2" y="222" width="334" height="66" rx="6"/><rect class="tab" x="2" y="202" width="49" height="20" rx="3"/><text class="tab-t" x="10" y="216">read</text><text class="n-title" x="16" y="250">Vision LLM</text><text class="n-sub" x="16" y="272">GPT-4o / Gemini summarizes each table</text></g><path class="wire" style="--i:2" pathLength="1" d="M300 290 V318"/><path class="head" style="--i:2" d="M295 312 L300 319 L305 312"/><g class="node" style="--i:3"><rect class="box" x="2" y="322" width="334" height="66" rx="6"/><rect class="tab" x="2" y="302" width="57" height="20" rx="3"/><text class="tab-t" x="10" y="316">index</text><text class="n-title" x="16" y="350">LlamaIndex</text><text class="n-sub" x="16" y="372">Fresh vector index per document</text></g><path class="wire" style="--i:3" pathLength="1" d="M300 390 V418"/><path class="head" style="--i:3" d="M295 412 L300 419 L305 412"/><g class="node" style="--i:4"><rect class="box" x="2" y="422" width="334" height="66" rx="6"/><rect class="tab" x="2" y="402" width="65" height="20" rx="3"/><text class="tab-t" x="10" y="416">answer</text><text class="n-title" x="16" y="450">Cited answer</text><text class="n-sub" x="16" y="472">Shows the exact source table image</text></g></svg>
           </figure>
+          <figure class="saw" aria-labelledby="saw-title">
+            <div class="saw-head">
+              <h4 id="saw-title">What YOLO saw</h4>
+              <p>Real artifacts from the pipeline's run on Apple's 2025 Form 10-K: the page it read, the table its detector cropped, and the summary the vision LLM stored.</p>
+              <button type="button" class="btn btn-sm saw-replay" hidden>Replay</button>
+            </div>
+            <ol class="saw-steps">
+              <li class="saw-step" style="--i:0">
+                <span class="saw-n">1 · page</span>
+                <div class="saw-frame saw-page">
+                  <img src="assets/yolo-saw/page-39.webp" srcset="assets/yolo-saw/page-39-400.webp 400w, assets/yolo-saw/page-39.webp 680w" sizes="(min-width: 900px) 260px, min(360px, 80vw)" alt="Page 39 of Apple's 2025 Form 10-K with two tables outlined; the lower one is the earnings-per-share table" width="680" height="880" loading="lazy" decoding="async">
+                  <span class="det saw-box saw-box-other" style="left: 3.35%; top: 10.8%; width: 93.22%; height: 14.27%" data-label="table" data-conf="" aria-hidden="true"></span>
+                  <span class="det saw-box saw-box-focus" style="left: 3.1%; top: 45.52%; width: 93.46%; height: 15.91%" data-label="table" data-conf="" aria-hidden="true"></span>
+                  <span class="saw-scan" aria-hidden="true"></span>
+                </div>
+                <p class="saw-cap">PDF page 39, rendered at 2× as the pipeline does. YOLOv8 found two tables.</p>
+              </li>
+              <li class="saw-step" style="--i:1">
+                <span class="saw-n">2 · crop</span>
+                <div class="saw-frame saw-crop">
+                  <a href="assets/yolo-saw/p39_table_21.png" class="saw-orig"><img src="assets/yolo-saw/p39_table_21-1144.webp" srcset="assets/yolo-saw/p39_table_21-572.webp 572w, assets/yolo-saw/p39_table_21-1144.webp 1144w" sizes="(min-width: 900px) 360px, 90vw" alt="The cropped earnings-per-share table: net income, share counts and earnings per share for 2025, 2024 and 2023" width="1144" height="252" loading="lazy" decoding="async"><span class="visually-hidden"> (opens the original PNG)</span></a>
+                </div>
+                <p class="saw-cap"><span class="mono">p39_table_21.png</span>, the exact crop the pipeline saved (select it for the original file).</p>
+              </li>
+              <li class="saw-step" style="--i:2">
+                <span class="saw-n">3 · summary</span>
+                <div class="saw-frame saw-sum" tabindex="0" role="region" aria-label="Stored summary of the table">
+                  <pre>The financial table provides data for the years 2023, 2024, and 2025, displaying key metrics related to net income and earnings per share.
+
+**Numerator:**
+- Net Income:
+  - 2025: $112,010
+  - 2024: $93,736
+  - 2023: $96,995
+
+**Denominator:**
+- Weighted-average basic shares outstanding:
+  - 2025: 14,948,500
+  - 2024: 15,343,783
+  - 2023: 15,744,231
+- Effect of dilutive share-based awards:
+  - 2025: 56,197
+  - 2024: 64,312
+  - 2023: 68,316
+- Weighted-average diluted shares:
+  - 2025: 15,004,697
+  - 2024: 15,408,095
+  - 2023: 15,812,547
+
+**Earnings per Share:**
+- Basic earnings per share:
+  - 2025: $7.49
+  - 2024: $6.11
+  - 2023: $6.16
+- Diluted earnings per share:
+  - 2025: $7.46
+  - 2024: $6.08
+  - 2023: $6.13
+
+This summary encapsulates the financial performance metrics over the specified years, including net income and earnings per share values alongside share count data.</pre>
+                </div>
+                <p class="saw-cap">The summary stored in the index (gpt-4o-mini via OpenRouter), indexed for retrieval.</p>
+              </li>
+            </ol>
+            <p class="saw-credit">Source: Apple Inc. 2025 Form 10-K (public SEC filing), processed by <a href="https://github.com/Mukundh0007/visual-financial-rag">visual-financial-rag</a>. The pipeline didn't save detector confidences, so none are shown.</p>
+          </figure>
           <div class="case-grid">
             <div class="cell"><h4>Problem</h4><p>Financial analysts spend hours cross-referencing the narrative text and the tables in 10-K filings. Traditional RAG struggles here: OCR loses table structure, charts and graphs get ignored, and context is lost between pages.</p></div>
             <div class="cell"><h4>Approach</h4><p>Look at the filing instead of just reading it. YOLOv8 detects the tables, GPT-4o or Gemini reads and summarizes each one, and LlamaIndex builds a fresh index for every uploaded document. A split-screen Streamlit app shows the original PDF next to the chat.</p></div>

@@ -182,6 +182,19 @@
     });
   }
 
+  /* ---------- What YOLO saw: play once in view, pause off-screen, Replay ---------- */
+  $$(".saw").forEach(function (fig) {
+    var btn = $(".saw-replay", fig), played = false;
+    var play = function () { fig.classList.remove("is-playing"); void fig.offsetWidth; fig.classList.add("is-playing"); played = true; };
+    if (reduce || !("IntersectionObserver" in window)) { fig.classList.add("is-playing"); return; }
+    new IntersectionObserver(function (es) {
+      var on = es[0].isIntersecting;
+      fig.classList.toggle("is-paused", !on);
+      if (on && !played) play();
+    }, { threshold: 0.15 }).observe(fig);
+    if (btn) { btn.hidden = false; btn.addEventListener("click", play); }
+  });
+
   /* ---------- On-demand features: load their code only when needed ---------- */
   // "Run my model": the module (a few KB) loads when the section nears the viewport;
   // the model and ONNX Runtime load only after the visitor starts a detection.

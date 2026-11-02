@@ -13,6 +13,7 @@ The design concept is "detected": the site behaves like a computer-vision model 
 | `assets/js/` | On-demand feature modules (loaded only when used): `detect.js` + `detect-worker.js` for "Run my model" |
 | `assets/models/` | Browser-side model files (`yolox_nano.onnx`) and their licences |
 | `assets/samples/` | Sample photos for the detection demo |
+| `assets/yolo-saw/` | "What YOLO saw" artifacts (page render, table crop, stored summary in `meta.json`) |
 | `assets/main.js` | Theme toggle, confidence count-ups, scroll reveal, diagram drawing, copy-email, the ⌘K / Ctrl+K palette. The page works without it |
 | `404.html` | "No page detected" error page, same style |
 | `assets/photo.jpg`, `assets/photo-*.webp` | Hero photo (4:5) and its responsive WebP sizes |
@@ -36,6 +37,8 @@ The design concept is "detected": the site behaves like a computer-vision model 
 **Strengths and timeline.** Each strength is an `<li class="strength">` with "Shown in" links to project or timeline anchors. Each timeline entry is an `<li class="tl">`, and its colour/class tag marks it as education, work, research or publication.
 
 **Run my model (live detection).** `assets/js/detect.js` loads when the section nears the viewport; the YOLOX-Nano model and onnxruntime-web load only after a visitor picks an image or starts the camera. Inference runs in a Web Worker (`detect-worker.js`) on WebGPU when available, otherwise single-threaded WASM (GitHub Pages can't send the COOP/COEP headers WASM threads need). Library versions are pinned once, in the `<script type="importmap">` in `index.html`. `tools/fetch-yolox.sh` re-downloads the model and `tools/export-samples.py` regenerates the sample photos.
+
+**What YOLO saw (Visual RAG case study).** Real artifacts from github.com/Mukundh0007/visual-financial-rag: page 39 of the Apple 10-K the pipeline processed, the two table crops its YOLOv8 detector saved there, and the gpt-4o-mini summary stored in its index. `tools/make-yolo-saw.py <path-to-that-repo>` rebuilds `assets/yolo-saw/`: it renders the page exactly as the pipeline does and recovers each box by locating the saved crop in the render (it refuses to write if the match isn't near-exact). The pipeline didn't save detector confidences, so none are shown.
 
 **Command palette.** Any element with a `data-cmd="Label"` attribute shows up in the palette. `data-cmd-group` sets the small tag on the right. Links and buttons are clicked, and anything else is scrolled to.
 
@@ -65,3 +68,4 @@ Commit and push to `main`. GitHub Pages deploys from the `main` branch, root fol
 | onnxruntime-web 1.30.0 (loaded from jsDelivr) | MIT |
 | Sample photos: astronaut Eileen Collins (NASA) | Public domain |
 | Sample photos: Chelsea the cat (Stéfan van der Walt), coffee cup (Rachel Michetti) | CC0, via scikit-image |
+| `assets/yolo-saw/` page render and table crop | From Apple Inc.'s 2025 Form 10-K (public SEC filing), as processed by visual-financial-rag (my repo; it has no licence file) |

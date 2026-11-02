@@ -1,0 +1,44 @@
+{
+ "source": "github.com/Mukundh0007/visual-financial-rag",
+ "page": 39,
+ "page_render_px": [
+  1224,
+  1584
+ ],
+ "focus": {
+  "crop": "p39_table_21.png",
+  "box_px": [
+   38,
+   721,
+   1182,
+   973
+  ],
+  "box_pct": [
+   3.1,
+   45.52,
+   93.46,
+   15.91
+  ],
+  "match_score": 1.0001
+ },
+ "other_detections": [
+  {
+   "crop": "p39_table_22.png",
+   "box_px": [
+    41,
+    171,
+    1182,
+    397
+   ],
+   "box_pct": [
+    3.35,
+    10.8,
+    93.22,
+    14.27
+   ],
+   "match_score": 0.9997
+  }
+ ],
+ "summary_model": "openai/gpt-4o-mini via OpenRouter (src/rag/ingest.py)",
+ "summary": "The financial table provides data for the years 2023, 2024, and 2025, displaying key metrics related to net income and earnings per share.\n\n**Numerator:**\n- Net Income:\n  - 2025: $112,010\n  - 2024: $93,736\n  - 2023: $96,995\n\n**Denominator:**\n- Weighted-average basic shares outstanding:\n  - 2025: 14,948,500\n  - 2024: 15,343,783\n  - 2023: 15,744,231\n- Effect of dilutive share-based awards:\n  - 2025: 56,197\n  - 2024: 64,312\n  - 2023: 68,316\n- Weighted-average diluted shares:\n  - 2025: 15,004,697\n  - 2024: 15,408,095\n  - 2023: 15,812,547\n\n**Earnings per Share:**\n- Basic earnings per share:\n  - 2025: $7.49\n  - 2024: $6.11\n  - 2023: $6.16\n- Diluted earnings per share:\n  - 2025: $7.46\n  - 2024: $6.08\n  - 2023: $6.13\n\nThis summary encapsulates the financial performance metrics over the specified years, including net income and earnings per share values alongside share count data."
+}
