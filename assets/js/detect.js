@@ -4,6 +4,7 @@
 // onnxruntime-web (pinned in the page's importmap) are fetched and run in a worker.
 
 const S = 416, THR = 0.35, MAX_FPS = 15;
+const MODEL_BYTES = 3659407; // size of assets/models/yolox_nano.onnx (Content-Length may be the gzipped size)
 const MODEL_URL = new URL("../models/yolox_nano.onnx", import.meta.url).href;
 const PALETTE = ["#39ff14", "#ff5ccf", "#36d1ff", "#ff9a3c", "#b197ff", "#ffe14d"];
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -19,6 +20,13 @@ let lastDets = [], lastSize = [1, 1], frameId = 0, stream = null, running = fals
 const pending = new Map();
 
 const setStatus = (msg) => { statusEl.textContent = msg; };
+// Plain-language failure messages (details still go to the console).
+function failMessage(e) {
+  console.warn("[run my model]", e);
+  return /dynamically imported module|Failed to fetch|NetworkError|Load failed|download failed|Importing a module/i.test(String(e && e.message))
+    ? "Couldn't download the detector. Check your connection (or any blocker for cdn.jsdelivr.net) and try again."
+    : "The detector couldn't run in this browser. Try again, or use a recent Chrome, Edge, Firefox or Safari.";
+}
 const colorFor = (label) => PALETTE[[...label].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % PALETTE.length];
 
 // ---------- runtime + model (on first use only) ----------
@@ -30,7 +38,7 @@ function importmapURL(spec) {
 async function fetchModel() {
   const res = await fetch(MODEL_URL);
   if (!res.ok) throw new Error(`model download failed (${res.status})`);
-  const total = +res.headers.get("content-length") || 3659407;
+  const total = MODEL_BYTES;
   if (!res.body || !res.body.getReader) return res.arrayBuffer();
   const reader = res.body.getReader(), chunks = [];
   let got = 0;
@@ -194,7 +202,7 @@ async function runImage(src, alt) {
     fpsEl.textContent = `${Math.round(res.ms)} ms`;
     setStatus(res.dets.length ? `Found ${res.dets.length} object${res.dets.length > 1 ? "s" : ""}: ${res.dets.map((d) => `${d.label} ${d.conf.toFixed(2)}`).join(", ")}.` : "No objects found above 0.35 confidence.");
   } catch (e) {
-    setStatus(`The model couldn't run: ${e.message}. Check your connection and try again.`);
+    setStatus(failMessage(e));
   }
 }
 
@@ -219,7 +227,7 @@ async function startCamera() {
   setMedia(video);
   try { await video.play(); } catch (e) { /* autoplay with muted video is allowed */ }
   camBtn.disabled = true; stopBtn.disabled = false;
-  try { await ensureModel(); } catch (e) { setStatus(`The model couldn't run: ${e.message}.`); stopCamera(false); return; }
+  try { await ensureModel(); } catch (e) { setStatus(failMessage(e)); stopCamera(false); return; }
   if (!stream) return; // stopped while loading
   running = true;
   setStatus("Camera running. Detection happens on this device.");
@@ -241,7 +249,7 @@ async function loop() {
       listResults(res.dets);
     }
   } catch (e) {
-    setStatus(`Detection stopped: ${e.message}`);
+    setStatus(`Detection stopped. ${failMessage(e)}`);
     stopCamera(false);
     return;
   }
